@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:boiled_egg"
-            ]
+            "items": "enhancedfarming:boiled_egg"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:sliced_bread"
-            ]
+            "items": "enhancedfarming:sliced_bread"
           }
         ]
       },

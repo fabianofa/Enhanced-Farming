@@ -100,9 +100,9 @@ public class CropstickCropBlock extends CropBlock {
 				int i = this.getAge(state);
 				if (i < this.getMaxAge()) {
 					float f = getGrowthSpeed(this, level, pos);
-					if (CommonHooks.onCropsGrowPre(level, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
+					if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(level, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) {
 						level.setBlock(pos, this.getStateForAge(i + 1), 2);
-						CommonHooks.onCropsGrowPost(level, pos, state);
+						net.neoforged.neoforge.common.CommonHooks.fireCropGrowPost(level, pos, state);
 					}
 				}
 			}

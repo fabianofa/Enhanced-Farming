@@ -3,7 +3,7 @@ package com.mrbysco.enhancedfarming.world.feature;
 import com.mrbysco.enhancedfarming.EnhancedFarming;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -23,7 +23,7 @@ public class FarmingVegetation {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry_fruit_vegetation").toString());
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear_fruit_vegetation").toString());
 
-	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		HolderGetter<PlacedFeature> placedHolderGetter = context.lookup(Registries.PLACED_FEATURE);
 		FeatureUtils.register(context, APPLE_FRUIT_VEGETATION, Feature.RANDOM_SELECTOR,
 				new RandomFeatureConfiguration(List.of(

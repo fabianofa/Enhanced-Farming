@@ -27,22 +27,22 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 		super(output, lookupProvider, blockTagProvider, EnhancedFarming.MOD_ID, existingFileHelper);
 	}
 
-	private final String VEGETABLES = "vegetables";
+	private final String VEGETABLES = "foods/vegetables";
 	private final String HERBS = "herbs";
-	private final String RAWMEATS = "rawmeats";
-	private final String RAW_BEEF = "raw_beef";
-	private final String RAW_CHICKEN = "raw_chicken";
-	private final String COOKED_BEEF = "cooked_beef";
-	private final String COOKED_CHICKEN = "cooked_chicken";
-	private final String COOKED_FISH = "cooked_fish";
-	private final String FRUITS = "fruits";
-	private final String FISH = "fish";
+	private final String RAWMEATS = "foods/raw_meats";
+	private final String RAW_BEEF = "foods/raw_beef";
+	private final String RAW_CHICKEN = "foods/raw_chicken";
+	private final String COOKED_BEEF = "foods/cooked_beef";
+	private final String COOKED_CHICKEN = "foods/cooked_chicken";
+	private final String COOKED_FISH = "foods/cooked_fish";
+	private final String FRUITS = "foods/fruits";
+	private final String FISH = "foods/fish";
 	private final String SUGAR = "sugar";
 	private final String WATER = "water";
 	private final String MILK = "milk";
 	private final String SEEDS = "seeds";
 	private final String DOUGH = "dough";
-	private final String CHEESES = "cheeses";
+	private final String CHEESES = "foods/cheeses";
 	private final String SALAD_INGREDIENTS = "salad_ingredients";
 	private final String SALT = "edible_salt";
 	private final String FLOUR = "flour";
@@ -68,7 +68,7 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 		addCategory(FRUITS, Items.APPLE, FarmingRegistry.BANANA.get(), FarmingRegistry.CHERRY.get(),
 				FarmingRegistry.LEMON.get(), FarmingRegistry.MANGO.get(), FarmingRegistry.ORANGE.get(),
 				FarmingRegistry.PEAR.get(), FarmingRegistry.AVOCADO.get());
-		addCategory(FISH, "rawfish", Items.COD, Items.SALMON);
+		addCategory(FISH, "foods/raw_fish", Items.COD, Items.SALMON);
 		addCategory(SUGAR, Items.SUGAR);
 		addCategory(WATER, Items.WATER_BUCKET);
 		addCategory(MILK, Items.MILK_BUCKET);
@@ -87,34 +87,34 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 	}
 
 	private void addRegular(String category, Item... items) {
-		TagKey<Item> mainTag = createForgeTag(category);
+		TagKey<Item> mainTag = createCommonTag(category);
 		this.tag(mainTag).add(items);
 	}
 
 	private void addCategory(String category, Item... items) {
-		TagKey<Item> mainTag = createForgeTag(category);
+		TagKey<Item> mainTag = createCommonTag(category);
 		for (Item item : items) {
 			String path = BuiltInRegistries.ITEM.getKey(item).getPath();
-			TagKey<Item> categoryTag = createForgeTag(category + "/" + path);
+			TagKey<Item> categoryTag = createCommonTag(category + "/" + path);
 			this.tag(categoryTag).add(item);
 			this.tag(mainTag).addTag(categoryTag);
 		}
 	}
 
 	private void addCategory(String category, String mainCategory, Item... items) {
-		TagKey<Item> mainTag = createForgeTag(mainCategory);
+		TagKey<Item> mainTag = createCommonTag(mainCategory);
 		for (Item item : items) {
 			String path = BuiltInRegistries.ITEM.getKey(item).getPath();
-			TagKey<Item> categoryTag = createForgeTag(category + "/" + path);
+			TagKey<Item> categoryTag = createCommonTag(category + "/" + path);
 			this.tag(categoryTag).add(item);
 			this.tag(mainTag).addTag(categoryTag);
 		}
 	}
 
 	private void addCategoryWithType(String category, String type, Item... items) {
-		TagKey<Item> mainTag = createForgeTag(category);
+		TagKey<Item> mainTag = createCommonTag(category);
 		for (Item item : items) {
-			TagKey<Item> categoryTag = createForgeTag(category + "/" + type);
+			TagKey<Item> categoryTag = createCommonTag(category + "/" + type);
 			this.tag(categoryTag).add(item);
 			this.tag(mainTag).addTag(categoryTag);
 		}
@@ -122,21 +122,21 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 
 	private void addCrop(DeferredItem<? extends Item> crop, @Nullable DeferredItem<? extends Item> seed, String foodType) {
 		String cropName = crop.getId().getPath();
-		TagKey<Item> cropTag = createForgeTag("crops/" + cropName);
-		TagKey<Item> mainFoodTag = createForgeTag(foodType);
-		TagKey<Item> foodTypeTag = createForgeTag(foodType + "/" + cropName);
+		TagKey<Item> cropTag = createCommonTag("crops/" + cropName);
+		TagKey<Item> mainFoodTag = createCommonTag(foodType);
+		TagKey<Item> foodTypeTag = createCommonTag(foodType + "/" + cropName);
 		this.tag(cropTag).add(crop.get());
 		this.tag(foodTypeTag).add(crop.get());
 		this.tag(mainFoodTag).addTag(foodTypeTag);
 		this.tag(Tags.Items.CROPS).addTag(cropTag);
 		if (seed != null) {
-			TagKey<Item> seedTag = createForgeTag("seeds/" + cropName);
+			TagKey<Item> seedTag = createCommonTag("seeds/" + cropName);
 			this.tag(seedTag).add(seed.get());
 			this.tag(Tags.Items.SEEDS).addTag(seedTag);
 		}
 	}
 
-	private TagKey<Item> createForgeTag(String name) {
-		return ItemTags.create(new ResourceLocation("forge", name));
+	private TagKey<Item> createCommonTag(String name) {
+		return ItemTags.create(new ResourceLocation("c", name));
 	}
 }

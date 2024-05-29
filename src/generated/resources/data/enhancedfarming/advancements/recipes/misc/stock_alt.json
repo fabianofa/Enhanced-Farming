@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bowl"
-            ]
+            "items": "minecraft:bowl"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -29,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:rawmeats"
+            "items": "#c:foods/raw_meats"
           }
         ]
       },
@@ -45,7 +41,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:water"
+            "items": "#c:water"
           }
         ]
       },

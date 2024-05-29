@@ -4,7 +4,7 @@ import com.mrbysco.enhancedfarming.EnhancedFarming;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -25,7 +25,7 @@ public class FarmingTreePlacements {
 	public static final ResourceKey<PlacedFeature> FANCY_PEAR_BEES_002 = PlacementUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_pear_bees_02").toString());
 
 
-	public static void bootstrap(BootstapContext<PlacedFeature> context) {
+	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> holdergetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
 		PlacementUtils.register(context, APPLE_BEES_002, holdergetter.getOrThrow(FarmingFeatureConfigs.APPLE_BEES_002),

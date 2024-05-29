@@ -6,13 +6,14 @@
       "item": "enhancedfarming:pot"
     },
     {
-      "tag": "forge:milk"
+      "tag": "c:milk"
     },
     {
-      "tag": "forge:edible_salt"
+      "tag": "c:foods/edible_salt"
     }
   ],
   "result": {
-    "item": "enhancedfarming:cheese"
+    "count": 1,
+    "id": "enhancedfarming:cheese"
   }
 }

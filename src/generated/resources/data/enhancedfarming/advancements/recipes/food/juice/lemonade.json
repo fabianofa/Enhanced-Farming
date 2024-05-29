@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:fruits/lemon"
+            "items": "#c:foods/fruits/lemon"
           }
         ]
       },

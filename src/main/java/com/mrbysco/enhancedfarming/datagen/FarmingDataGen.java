@@ -24,6 +24,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.registries.VanillaRegistries;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -33,7 +34,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class FarmingDataGen {
 
 	@SubscribeEvent
@@ -44,8 +45,8 @@ public class FarmingDataGen {
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
 		if (event.includeServer()) {
-			generator.addProvider(true, new FarmingLootProvider(packOutput));
-			generator.addProvider(true, new FarmingLootModifierProvider(packOutput));
+			generator.addProvider(true, new FarmingLootProvider(packOutput, lookupProvider));
+			generator.addProvider(true, new FarmingLootModifierProvider(packOutput, lookupProvider));
 			generator.addProvider(true, new FarmingRecipeProvider(packOutput, lookupProvider));
 			FarmingBlockTagProvider blockTagProvider;
 			generator.addProvider(true, blockTagProvider = new FarmingBlockTagProvider(packOutput, lookupProvider, existingFileHelper));

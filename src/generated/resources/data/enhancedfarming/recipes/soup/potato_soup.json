@@ -12,10 +12,11 @@
       "item": "enhancedfarming:stock"
     },
     {
-      "tag": "forge:vegetables/potato"
+      "tag": "c:foods/vegetables/potato"
     }
   ],
   "result": {
-    "item": "enhancedfarming:potato_soup"
+    "count": 1,
+    "id": "enhancedfarming:potato_soup"
   }
 }

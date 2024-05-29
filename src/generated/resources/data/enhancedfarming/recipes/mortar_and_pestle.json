@@ -3,10 +3,10 @@
   "category": "equipment",
   "key": {
     "B": {
-      "tag": "forge:stone"
+      "tag": "c:stones"
     },
     "S": {
-      "tag": "forge:ingots/iron"
+      "tag": "c:ingots/iron"
     }
   },
   "pattern": [
@@ -14,6 +14,7 @@
     "B "
   ],
   "result": {
-    "item": "enhancedfarming:mortar_and_pestle"
+    "count": 1,
+    "id": "enhancedfarming:mortar_and_pestle"
   }
 }

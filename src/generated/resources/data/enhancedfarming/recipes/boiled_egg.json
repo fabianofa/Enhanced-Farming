@@ -6,13 +6,14 @@
       "item": "enhancedfarming:pot"
     },
     {
-      "tag": "forge:water"
+      "tag": "c:water"
     },
     {
-      "tag": "forge:eggs"
+      "tag": "c:eggs"
     }
   ],
   "result": {
-    "item": "enhancedfarming:boiled_egg"
+    "count": 1,
+    "id": "enhancedfarming:boiled_egg"
   }
 }

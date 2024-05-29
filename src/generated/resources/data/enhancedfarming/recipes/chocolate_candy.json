@@ -6,7 +6,7 @@
       "item": "minecraft:cocoa_beans"
     },
     "S": {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     }
   },
   "pattern": [
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 2,
-    "item": "enhancedfarming:chocolate_candy"
+    "id": "enhancedfarming:chocolate_candy"
   }
 }

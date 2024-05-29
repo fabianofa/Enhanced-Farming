@@ -6,13 +6,14 @@
       "item": "enhancedfarming:milk_bottle"
     },
     {
-      "tag": "forge:fruits/pear"
+      "tag": "c:foods/fruits/pear"
     },
     {
       "item": "minecraft:snowball"
     }
   ],
   "result": {
-    "item": "enhancedfarming:smoothie_pear"
+    "count": 1,
+    "id": "enhancedfarming:smoothie_pear"
   }
 }

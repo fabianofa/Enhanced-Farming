@@ -12,10 +12,11 @@
       "item": "enhancedfarming:sliced_bread"
     },
     {
-      "tag": "forge:cooked_chicken"
+      "tag": "c:foods/cooked_chicken"
     }
   ],
   "result": {
-    "item": "enhancedfarming:chicken_sandwich"
+    "count": 1,
+    "id": "enhancedfarming:chicken_sandwich"
   }
 }

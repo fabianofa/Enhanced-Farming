@@ -15,16 +15,17 @@
       "item": "enhancedfarming:pasta"
     },
     {
-      "tag": "forge:vegetables/onion"
+      "tag": "c:foods/vegetables/onion"
     },
     {
-      "tag": "forge:vegetables/carrot"
+      "tag": "c:foods/vegetables/carrot"
     },
     {
-      "tag": "forge:raw_chicken"
+      "tag": "c:foods/raw_chicken"
     }
   ],
   "result": {
-    "item": "enhancedfarming:chicken_noodle_soup"
+    "count": 1,
+    "id": "enhancedfarming:chicken_noodle_soup"
   }
 }

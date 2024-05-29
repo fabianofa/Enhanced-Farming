@@ -20,9 +20,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.bus.api.Event;
 import net.neoforged.neoforge.event.EventHooks;
-import net.neoforged.neoforge.event.level.SaplingGrowTreeEvent;
+import net.neoforged.neoforge.event.level.BlockGrowFeatureEvent;
 
 public class GrowableSaplingBlock extends BushBlock implements BonemealableBlock {
 	public static final MapCodec<GrowableSaplingBlock> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
@@ -84,8 +83,8 @@ public class GrowableSaplingBlock extends BushBlock implements BonemealableBlock
 				serverLevel.setBlock(pos, state.cycle(STAGE), 4);
 			}
 		} else {
-			SaplingGrowTreeEvent event = EventHooks.blockGrowFeature(serverLevel, random, pos, null);
-			if (event.getResult().equals(Event.Result.DENY)) return;
+			BlockGrowFeatureEvent event = EventHooks.fireBlockGrowFeature(serverLevel, random, pos, null);
+			if (event.isCanceled()) return;
 			this.treeGrower.growTree(serverLevel, serverLevel.getChunkSource().getGenerator(), pos, state, random);
 		}
 	}

@@ -8,12 +8,16 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,15 +31,32 @@ import net.neoforged.neoforge.common.ToolAction;
 public class RakeToolItem extends DiggerItem {
 	private final int dropModifier;
 
-	public RakeToolItem(Tier itemTier, int attackDamage, float attackSpeed, int dropModifier, Item.Properties properties) {
-		super((float) attackDamage, attackSpeed, itemTier, BlockTags.MINEABLE_WITH_SHOVEL, properties);
+	public RakeToolItem(Tier itemTier, int dropModifier, Item.Properties properties) {
+		super(itemTier, BlockTags.MINEABLE_WITH_SHOVEL, properties);
 		this.dropModifier = dropModifier;
+	}
+
+	public static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed) {
+		return ItemAttributeModifiers.builder()
+				.add(
+						Attributes.ATTACK_DAMAGE,
+						new AttributeModifier(
+								BASE_ATTACK_DAMAGE_UUID, "Tool modifier", (double)(attackDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE
+						),
+						EquipmentSlotGroup.MAINHAND
+				)
+				.add(
+						Attributes.ATTACK_SPEED,
+						new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+						EquipmentSlotGroup.MAINHAND
+				)
+				.build();
 	}
 
 	public void dropSeedsWithChance(ItemStack toolStack, Level level, BlockPos pos) {
 		final int rand = level.random.nextInt(30 / this.dropModifier);
 		if (!level.isClientSide && rand == 0 && level.getServer() != null) {
-			LootTable table = level.getServer().getLootData().getLootTable(FarmingLootTables.GAMEPLAY_RAKE_DROPS);
+			LootTable table = level.getServer().reloadableRegistries().getLootTable(FarmingLootTables.GAMEPLAY_RAKE_DROPS);
 			LootParams.Builder lootParams = (new LootParams.Builder((ServerLevel) level))
 					.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(pos))
 					.withParameter(LootContextParams.TOOL, toolStack);
@@ -61,9 +82,7 @@ public class RakeToolItem extends DiggerItem {
 			if (!level.isClientSide) {
 				level.setBlock(blockpos, finalState, 11);
 				if (player != null) {
-					context.getItemInHand().hurtAndBreak(1, player, (thePlayer) -> {
-						thePlayer.broadcastBreakEvent(context.getHand());
-					});
+					context.getItemInHand().hurtAndBreak(1, player, Player.getSlotForHand(context.getHand()));
 					this.dropSeedsWithChance(context.getItemInHand(), level, blockpos);
 				}
 			}

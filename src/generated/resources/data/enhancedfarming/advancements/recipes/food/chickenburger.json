@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bread"
-            ]
+            "items": "minecraft:bread"
           }
         ]
       },
@@ -17,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:cheeses/normal"
+            "items": "#c:foods/cheeses/normal"
           }
         ]
       },
@@ -27,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:cooked_chicken"
+            "items": "#c:foods/cooked_chicken"
           }
         ]
       },
@@ -37,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },

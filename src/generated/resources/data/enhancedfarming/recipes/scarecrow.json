@@ -6,10 +6,10 @@
       "item": "minecraft:carved_pumpkin"
     },
     "S": {
-      "tag": "forge:rods/wooden"
+      "tag": "c:rods/wooden"
     },
     "W": {
-      "tag": "forge:crops/wheat"
+      "tag": "c:crops/wheat"
     },
     "X": {
       "tag": "minecraft:wool"
@@ -21,6 +21,7 @@
     " S "
   ],
   "result": {
-    "item": "enhancedfarming:scarecrow"
+    "count": 1,
+    "id": "enhancedfarming:scarecrow"
   }
 }

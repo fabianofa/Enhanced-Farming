@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:flour/wheat"
+            "items": "#c:flour/wheat"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:edible_salt"
+            "items": "#c:foods/edible_salt"
           }
         ]
       },
@@ -31,9 +31,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:water_bucket"
-            ]
+            "items": "minecraft:water_bucket"
           }
         ]
       },

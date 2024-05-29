@@ -6,7 +6,7 @@
       "item": "minecraft:cocoa_beans"
     },
     "S": {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     }
   },
   "pattern": [
@@ -15,6 +15,7 @@
     "CSC"
   ],
   "result": {
-    "item": "enhancedfarming:chocolate_bar"
+    "count": 1,
+    "id": "enhancedfarming:chocolate_bar"
   }
 }

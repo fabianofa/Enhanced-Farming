@@ -5,9 +5,17 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/carrot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/carrot"
           }
         ]
       },
@@ -17,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -29,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:stock"
-            ]
+            "items": "enhancedfarming:stock"
           }
         ]
       },
@@ -42,16 +46,6 @@
         "recipe": "enhancedfarming:soup/carrot_soup"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/carrot": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/carrot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -60,7 +54,7 @@
       "has_pot",
       "has_cutting_board",
       "has_stock",
-      "has_vegetables/carrot"
+      "has_foods/vegetables/carrot"
     ]
   ],
   "rewards": {

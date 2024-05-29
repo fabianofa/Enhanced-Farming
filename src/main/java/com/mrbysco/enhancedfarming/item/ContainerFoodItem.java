@@ -1,6 +1,7 @@
 package com.mrbysco.enhancedfarming.item;
 
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -35,9 +36,9 @@ public class ContainerFoodItem extends SpecialCustomFoodItem {
 
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
 		if (!level.isClientSide && cure) livingEntity.removeEffectsCuredBy(EffectCures.MILK);
-		if (this.isEdible()) {
+		if (stack.has(DataComponents.FOOD)) {
 			if (directheal) {
-				livingEntity.heal(this.getFoodProperties().getNutrition());
+				livingEntity.heal(stack.getFoodProperties(livingEntity).nutrition());
 				stack = eatStack(livingEntity, level, stack, false);
 			} else {
 				stack = eatStack(livingEntity, level, stack, true);
@@ -61,8 +62,8 @@ public class ContainerFoodItem extends SpecialCustomFoodItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-		super.appendHoverText(stack, level, components, flag);
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag flag) {
+		super.appendHoverText(stack, context, components, flag);
 		if (this == FarmingRegistry.BANANA_JUICE.get()) {
 			components.add(Component.translatable("enhancedfarming.item.banana_juice.tooltip"));
 		}

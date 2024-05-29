@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },
@@ -17,19 +15,27 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:dough"
-            ]
+            "items": "enhancedfarming:dough"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_fruits/pineapple": {
+    "has_foods/fruits/pineapple": {
       "conditions": {
         "items": [
           {
-            "tag": "forge:fruits/pineapple"
+            "items": "#c:foods/fruits/pineapple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/tomato"
           }
         ]
       },
@@ -40,16 +46,6 @@
         "recipe": "enhancedfarming:pizza/pineapple_pizza"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/tomato": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/tomato"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -57,8 +53,8 @@
       "has_the_recipe",
       "has_cutting_board",
       "has_dough",
-      "has_vegetables/tomato",
-      "has_fruits/pineapple"
+      "has_foods/vegetables/tomato",
+      "has_foods/fruits/pineapple"
     ]
   ],
   "rewards": {

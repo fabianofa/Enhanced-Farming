@@ -6,7 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +26,6 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.function.Supplier;
 
@@ -85,9 +83,9 @@ public class FruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
 			if (!isMaxAge(state)) {
 				if (!state.getValue(PERSISTENT)) {
 					float f = 1.0F;
-					if (CommonHooks.onCropsGrowPre(serverLevel, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
+					if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(serverLevel, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
 						this.grow(serverLevel, pos, state, 1);
-						CommonHooks.onCropsGrowPost(serverLevel, pos, state);
+						net.neoforged.neoforge.common.CommonHooks.fireCropGrowPost(serverLevel, pos, state);
 					}
 				}
 			} else {
@@ -105,7 +103,7 @@ public class FruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult pHitResult) {
 		if (FarmingConfig.COMMON.rightClickFruitHarvest.get() && isMaxAge(state)) {
 			if (FarmingConfig.COMMON.relocationAllowed.get() || !state.getValue(PERSISTENT)) {
 				ItemEntity fruitItem = new ItemEntity(level, pos.getX(), pos.getY() - 0.2, pos.getZ(), new ItemStack(itemSupplier.get()));
@@ -115,7 +113,7 @@ public class FruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
 
 			return InteractionResult.SUCCESS;
 		}
-		return super.use(state, level, pos, player, hand, result);
+		return super.useWithoutItem(state, level, pos, player, pHitResult);
 	}
 
 	protected int getBonemealAgeIncrease(Level level) {

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bowl"
-            ]
+            "items": "minecraft:bowl"
           }
         ]
       },
@@ -17,9 +15,37 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/lettuce": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/lettuce"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/onion": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/onion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/tomato"
           }
         ]
       },
@@ -30,36 +56,6 @@
         "recipe": "enhancedfarming:salad/salad"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/lettuce": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/lettuce"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_vegetables/onion": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/onion"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_vegetables/tomato": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/tomato"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -67,9 +63,9 @@
       "has_the_recipe",
       "has_bowl",
       "has_cutting_board",
-      "has_vegetables/lettuce",
-      "has_vegetables/tomato",
-      "has_vegetables/onion"
+      "has_foods/vegetables/lettuce",
+      "has_foods/vegetables/tomato",
+      "has_foods/vegetables/onion"
     ]
   ],
   "rewards": {

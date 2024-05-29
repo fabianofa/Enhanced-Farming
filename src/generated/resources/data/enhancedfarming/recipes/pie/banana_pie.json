@@ -3,19 +3,20 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:flour/wheat"
+      "tag": "c:flour/wheat"
     },
     {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     },
     {
-      "tag": "forge:eggs"
+      "tag": "c:eggs"
     },
     {
-      "tag": "forge:milk"
+      "tag": "c:milk"
     }
   ],
   "result": {
-    "item": "enhancedfarming:banana_pie"
+    "count": 1,
+    "id": "enhancedfarming:banana_pie"
   }
 }

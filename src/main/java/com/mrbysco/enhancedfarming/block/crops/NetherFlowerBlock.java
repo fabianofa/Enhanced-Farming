@@ -90,10 +90,10 @@ public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
 		int i = state.getValue(AGE);
 		int maxAge = this.getMaxAge();
-		if (i < maxAge && CommonHooks.onCropsGrowPre(level, pos, state, random.nextInt(10) == 0)) {
+		if (i < maxAge && net.neoforged.neoforge.common.CommonHooks.canCropGrow(level, pos, state, random.nextInt(10) == 0)) {
 			state = state.setValue(AGE, Integer.valueOf(i + 1));
 			level.setBlock(pos, state, 2);
-			CommonHooks.onCropsGrowPost(level, pos, state);
+			net.neoforged.neoforge.common.CommonHooks.fireCropGrowPost(level, pos, state);
 		}
 	}
 

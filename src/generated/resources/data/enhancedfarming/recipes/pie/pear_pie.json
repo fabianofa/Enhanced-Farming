@@ -3,16 +3,17 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:flour/wheat"
+      "tag": "c:flour/wheat"
     },
     {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     },
     {
-      "tag": "forge:eggs"
+      "tag": "c:eggs"
     }
   ],
   "result": {
-    "item": "enhancedfarming:pear_pie"
+    "count": 1,
+    "id": "enhancedfarming:pear_pie"
   }
 }

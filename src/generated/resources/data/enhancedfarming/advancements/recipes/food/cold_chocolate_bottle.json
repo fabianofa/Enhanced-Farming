@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:cocoa_beans"
-            ]
+            "items": "minecraft:cocoa_beans"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:milk_bottle"
-            ]
+            "items": "enhancedfarming:milk_bottle"
           }
         ]
       },

@@ -9,13 +9,14 @@
       "item": "enhancedfarming:cutting_board"
     },
     {
-      "tag": "forge:fruits"
+      "tag": "c:foods/fruits"
     },
     {
-      "tag": "forge:fruits"
+      "tag": "c:foods/fruits"
     }
   ],
   "result": {
-    "item": "enhancedfarming:fruit_salad"
+    "count": 1,
+    "id": "enhancedfarming:fruit_salad"
   }
 }

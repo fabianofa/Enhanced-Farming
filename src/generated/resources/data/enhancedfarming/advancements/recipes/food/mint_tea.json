@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:hot_water"
-            ]
+            "items": "enhancedfarming:hot_water"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:mint"
-            ]
+            "items": "enhancedfarming:mint"
           }
         ]
       },

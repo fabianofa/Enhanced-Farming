@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:glass_bottle"
-            ]
+            "items": "minecraft:glass_bottle"
           }
         ]
       },
@@ -17,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:fruits"
+            "items": "#c:foods/fruits"
           }
         ]
       },
@@ -27,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -39,7 +35,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:sugar"
+            "items": "#c:sugar"
           }
         ]
       },

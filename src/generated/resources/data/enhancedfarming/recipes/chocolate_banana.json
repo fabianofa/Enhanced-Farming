@@ -6,7 +6,7 @@
       "item": "minecraft:cocoa_beans"
     },
     "F": {
-      "tag": "forge:fruits/banana"
+      "tag": "c:foods/fruits/banana"
     }
   },
   "pattern": [
@@ -14,6 +14,7 @@
     "CF"
   ],
   "result": {
-    "item": "enhancedfarming:chocolate_banana"
+    "count": 1,
+    "id": "enhancedfarming:chocolate_banana"
   }
 }

@@ -12,10 +12,11 @@
       "item": "enhancedfarming:stock"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "tag": "c:foods/vegetables/tomato"
     }
   ],
   "result": {
-    "item": "enhancedfarming:tomato_soup"
+    "count": 1,
+    "id": "enhancedfarming:tomato_soup"
   }
 }

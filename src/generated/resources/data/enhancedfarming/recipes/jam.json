@@ -6,22 +6,23 @@
       "item": "enhancedfarming:pot"
     },
     {
-      "tag": "forge:fruits"
+      "tag": "c:foods/fruits"
     },
     {
-      "tag": "forge:fruits"
+      "tag": "c:foods/fruits"
     },
     {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     },
     {
-      "tag": "forge:sugar"
+      "tag": "c:sugar"
     },
     {
       "item": "minecraft:glass_bottle"
     }
   ],
   "result": {
-    "item": "enhancedfarming:jam"
+    "count": 1,
+    "id": "enhancedfarming:jam"
   }
 }

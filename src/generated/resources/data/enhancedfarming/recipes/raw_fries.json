@@ -6,14 +6,14 @@
       "item": "enhancedfarming:cutting_board"
     },
     {
-      "tag": "forge:vegetables/potato"
+      "tag": "c:foods/vegetables/potato"
     },
     {
-      "tag": "forge:vegetables/potato"
+      "tag": "c:foods/vegetables/potato"
     }
   ],
   "result": {
     "count": 2,
-    "item": "enhancedfarming:raw_fries"
+    "id": "enhancedfarming:raw_fries"
   }
 }

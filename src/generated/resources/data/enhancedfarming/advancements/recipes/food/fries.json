@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:olive_oil"
-            ]
+            "items": "enhancedfarming:olive_oil"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:raw_fries"
-            ]
+            "items": "enhancedfarming:raw_fries"
           }
         ]
       },

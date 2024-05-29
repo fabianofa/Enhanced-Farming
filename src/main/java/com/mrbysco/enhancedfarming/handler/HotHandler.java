@@ -6,16 +6,16 @@ import com.mrbysco.enhancedfarming.init.FarmingTags;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class HotHandler {
 	private static final String HOT = EnhancedFarming.MOD_ID + ":hotCounter";
 
 	@SubscribeEvent
-	public void ItemHeld(TickEvent.PlayerTickEvent event) {
-		if (event.phase.equals(TickEvent.Phase.START) && event.side.isServer() && FarmingConfig.COMMON.hotBurnsPlayer.get()) {
-			final Player player = event.player;
+	public void ItemHeld(PlayerTickEvent.Pre event) {
+		final Player player = event.getEntity();
+		if (!player.level().isClientSide && FarmingConfig.COMMON.hotBurnsPlayer.get()) {
 			if (player.level().getGameTime() % 20 == 0) {
 				CompoundTag tag = player.getPersistentData();
 				ItemStack mainHeldStack = player.getMainHandItem();
@@ -27,7 +27,7 @@ public class HotHandler {
 						if (currentTimer < FarmingConfig.COMMON.hotTime.get()) {
 							tag.putInt(HOT, currentTimer + 1);
 						} else {
-							player.setSecondsOnFire(5);
+							player.setRemainingFireTicks(5 * 20);
 							tag.remove(HOT);
 						}
 					} else {

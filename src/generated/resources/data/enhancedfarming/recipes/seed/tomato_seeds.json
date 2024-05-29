@@ -1,8 +1,7 @@
 {
   "neoforge:conditions": [
     {
-      "type": "enhancedfarming:crop_to_seeds",
-      "value": {}
+      "type": "enhancedfarming:crop_to_seeds"
     }
   ],
   "type": "minecraft:crafting_shapeless",
@@ -13,6 +12,7 @@
     }
   ],
   "result": {
-    "item": "enhancedfarming:tomato_seeds"
+    "count": 1,
+    "id": "enhancedfarming:tomato_seeds"
   }
 }

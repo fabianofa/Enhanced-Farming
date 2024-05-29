@@ -12,13 +12,14 @@
       "item": "enhancedfarming:sliced_bread"
     },
     {
-      "tag": "forge:cheeses/normal"
+      "tag": "c:foods/cheeses/normal"
     },
     {
       "item": "enhancedfarming:jam"
     }
   ],
   "result": {
-    "item": "enhancedfarming:jc_sandwich"
+    "count": 1,
+    "id": "enhancedfarming:jc_sandwich"
   }
 }

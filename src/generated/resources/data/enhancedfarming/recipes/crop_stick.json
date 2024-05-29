@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "S": {
-      "tag": "forge:rods/wooden"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [
@@ -11,6 +11,7 @@
     "SS"
   ],
   "result": {
-    "item": "enhancedfarming:crop_stick"
+    "count": 1,
+    "id": "enhancedfarming:crop_stick"
   }
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:cooked_fish"
+            "items": "#c:foods/cooked_fish"
           }
         ]
       },
@@ -15,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:fries"
-            ]
+            "items": "enhancedfarming:fries"
           }
         ]
       },

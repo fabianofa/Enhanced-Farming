@@ -1,18 +1,17 @@
 {
   "neoforge:conditions": [
     {
-      "type": "enhancedfarming:rake_enabled",
-      "value": {}
+      "type": "enhancedfarming:rake_enabled"
     }
   ],
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
     "S": {
-      "tag": "forge:rods/wooden"
+      "tag": "c:rods/wooden"
     },
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "pattern": [
@@ -21,6 +20,7 @@
     " S "
   ],
   "result": {
-    "item": "enhancedfarming:gold_rake"
+    "count": 1,
+    "id": "enhancedfarming:gold_rake"
   }
 }

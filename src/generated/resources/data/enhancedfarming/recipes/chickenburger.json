@@ -9,13 +9,14 @@
       "item": "minecraft:bread"
     },
     {
-      "tag": "forge:cooked_chicken"
+      "tag": "c:foods/cooked_chicken"
     },
     {
-      "tag": "forge:cheeses/normal"
+      "tag": "c:foods/cheeses/normal"
     }
   ],
   "result": {
-    "item": "enhancedfarming:chickenburger"
+    "count": 1,
+    "id": "enhancedfarming:chickenburger"
   }
 }

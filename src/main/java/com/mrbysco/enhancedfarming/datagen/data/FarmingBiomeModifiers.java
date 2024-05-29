@@ -5,7 +5,7 @@ import com.mrbysco.enhancedfarming.world.feature.FarmingVegetationPlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
@@ -28,7 +28,7 @@ public class FarmingBiomeModifiers {
 	public static final ResourceKey<BiomeModifier> BANANA = createKey("add_banana_tree");
 	public static final ResourceKey<BiomeModifier> OLIVE = createKey("add_olive_tree");
 
-	public static void bootstrap(BootstapContext<BiomeModifier> context) {
+	public static void bootstrap(BootstrapContext<BiomeModifier> context) {
 		final HolderGetter<Biome> biomeHolderGetter = context.lookup(Registries.BIOME);
 		final HolderGetter<PlacedFeature> placedHolderGetter = context.lookup(Registries.PLACED_FEATURE);
 

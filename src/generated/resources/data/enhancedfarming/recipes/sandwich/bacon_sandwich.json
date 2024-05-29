@@ -12,13 +12,14 @@
       "item": "enhancedfarming:sliced_bread"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "tag": "c:foods/vegetables/tomato"
     },
     {
-      "tag": "forge:cooked_beef"
+      "tag": "c:foods/cooked_beef"
     }
   ],
   "result": {
-    "item": "enhancedfarming:bacon_sandwich"
+    "count": 1,
+    "id": "enhancedfarming:bacon_sandwich"
   }
 }

@@ -5,9 +5,17 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/tomato"
           }
         ]
       },
@@ -17,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -29,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:stock"
-            ]
+            "items": "enhancedfarming:stock"
           }
         ]
       },
@@ -42,16 +46,6 @@
         "recipe": "enhancedfarming:soup/tomato_soup"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/tomato": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/tomato"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -60,7 +54,7 @@
       "has_pot",
       "has_cutting_board",
       "has_stock",
-      "has_vegetables/tomato"
+      "has_foods/vegetables/tomato"
     ]
   ],
   "rewards": {

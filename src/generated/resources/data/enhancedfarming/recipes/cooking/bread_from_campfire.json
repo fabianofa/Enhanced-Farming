@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "enhancedfarming:dough"
   },
-  "result": "minecraft:bread"
+  "result": {
+    "count": 1,
+    "id": "minecraft:bread"
+  }
 }

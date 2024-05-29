@@ -11,14 +11,15 @@ import com.mrbysco.enhancedfarming.init.FarmingGLM;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
 import com.mrbysco.enhancedfarming.recipes.FarmingRecipes;
 import com.mrbysco.enhancedfarming.world.feature.FarmingFeatures;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.apache.logging.log4j.LogManager;
@@ -31,8 +32,8 @@ public class EnhancedFarming {
 	public static final String MOD_ID = "enhancedfarming";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-	public EnhancedFarming(IEventBus eventBus) {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FarmingConfig.commonSpec);
+	public EnhancedFarming(IEventBus eventBus, ModContainer container, Dist dist) {
+		container.registerConfig(ModConfig.Type.COMMON, FarmingConfig.commonSpec);
 		eventBus.register(FarmingConfig.class);
 
 		eventBus.addListener(this::setup);
@@ -54,7 +55,7 @@ public class EnhancedFarming {
 		NeoForge.EVENT_BUS.register(new RakeHandler());
 
 
-		if (FMLEnvironment.dist.isClient()) {
+		if (dist.isClient()) {
 			eventBus.addListener(ClientHandler::registerBlockColors);
 			eventBus.addListener(ClientHandler::registerItemColors);
 		}
@@ -67,7 +68,7 @@ public class EnhancedFarming {
 	private void buildTabContents(final BuildCreativeModeTabContentsEvent event) {
 		if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
 			List<ItemStack> stacks = FarmingRegistry.ITEMS.getEntries().stream()
-					.filter(reg -> reg.get().isEdible()).map(reg -> new ItemStack(reg.get())).toList();
+					.filter(reg -> reg.get().getDefaultInstance().has(DataComponents.FOOD)).map(reg -> new ItemStack(reg.get())).toList();
 			event.acceptAll(stacks);
 		}
 	}

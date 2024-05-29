@@ -3,13 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:crops/wheat"
+      "tag": "c:crops/wheat"
     },
     {
       "item": "enhancedfarming:mortar_and_pestle"
     }
   ],
   "result": {
-    "item": "enhancedfarming:flour"
+    "count": 1,
+    "id": "enhancedfarming:flour"
   }
 }

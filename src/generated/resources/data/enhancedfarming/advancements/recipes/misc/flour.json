@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:mortar_and_pestle"
-            ]
+            "items": "enhancedfarming:mortar_and_pestle"
           }
         ]
       },
@@ -23,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:crops/wheat"
+            "items": "#c:crops/wheat"
           }
         ]
       },

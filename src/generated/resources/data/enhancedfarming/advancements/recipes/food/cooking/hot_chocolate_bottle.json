@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cold_chocolate_bottle"
-            ]
+            "items": "enhancedfarming:cold_chocolate_bottle"
           }
         ]
       },

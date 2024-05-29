@@ -12,10 +12,11 @@
       "item": "enhancedfarming:stock"
     },
     {
-      "tag": "forge:vegetables/onion"
+      "tag": "c:foods/vegetables/onion"
     }
   ],
   "result": {
-    "item": "enhancedfarming:onion_soup"
+    "count": 1,
+    "id": "enhancedfarming:onion_soup"
   }
 }

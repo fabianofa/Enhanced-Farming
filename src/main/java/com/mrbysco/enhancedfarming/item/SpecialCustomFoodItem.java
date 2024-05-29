@@ -1,12 +1,14 @@
 package com.mrbysco.enhancedfarming.item;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
@@ -41,9 +43,9 @@ public class SpecialCustomFoodItem extends CustomFoodItem {
 
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
 		if (!level.isClientSide && cure) livingEntity.removeEffectsCuredBy(EffectCures.MILK);
-		if (this.isEdible()) {
+		if (stack.has(DataComponents.FOOD)) {
 			if (directheal) {
-				livingEntity.heal(this.getFoodProperties().getNutrition());
+				livingEntity.heal(this.getFoodProperties(stack, livingEntity).nutrition());
 				stack = eatStack(livingEntity, level, stack, false);
 			} else {
 				stack = eatStack(livingEntity, level, stack, true);
@@ -63,7 +65,7 @@ public class SpecialCustomFoodItem extends CustomFoodItem {
 	public ItemStack eatStack(LivingEntity livingEntity, Level level, ItemStack stack, boolean useFood) {
 		if (livingEntity instanceof Player player) {
 			if (useFood) {
-				player.getFoodData().eat(stack.getItem(), stack);
+				player.getFoodData().eat(stack, player);
 			}
 			player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
 			level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
@@ -72,7 +74,9 @@ public class SpecialCustomFoodItem extends CustomFoodItem {
 			}
 		} else {
 			level.playSound((Player) null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), livingEntity.getEatingSound(stack), SoundSource.NEUTRAL, 1.0F, 1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.4F);
-			livingEntity.addEatEffect(stack, level, livingEntity);
+			FoodProperties foodProperties = stack.getFoodProperties(livingEntity);
+			if (foodProperties != null)
+				livingEntity.addEatEffect(foodProperties);
 		}
 		return stack;
 	}

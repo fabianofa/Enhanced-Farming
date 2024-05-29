@@ -1,13 +1,13 @@
 package com.mrbysco.enhancedfarming.init.conditions;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mrbysco.enhancedfarming.config.FarmingConfig;
 import net.neoforged.neoforge.common.conditions.ICondition;
 
 public class CropToSeedCondition implements ICondition {
 	public static final CropToSeedCondition INSTANCE = new CropToSeedCondition();
 
-	public static final Codec<CropToSeedCondition> CODEC = Codec.unit(INSTANCE).stable();
+	public static final MapCodec<CropToSeedCondition> CODEC = MapCodec.unit(INSTANCE).stable();
 
 	private CropToSeedCondition() {
 	}
@@ -18,7 +18,7 @@ public class CropToSeedCondition implements ICondition {
 	}
 
 	@Override
-	public Codec<? extends ICondition> codec() {
+	public MapCodec<? extends ICondition> codec() {
 		return CODEC;
 	}
 

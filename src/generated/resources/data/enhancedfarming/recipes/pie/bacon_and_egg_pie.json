@@ -3,16 +3,17 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:raw_beef"
+      "tag": "c:foods/raw_beef"
     },
     {
-      "tag": "forge:eggs"
+      "tag": "c:eggs"
     },
     {
-      "tag": "forge:dough/wheat"
+      "tag": "c:dough/wheat"
     }
   ],
   "result": {
-    "item": "enhancedfarming:bacon_and_egg_pie"
+    "count": 1,
+    "id": "enhancedfarming:bacon_and_egg_pie"
   }
 }

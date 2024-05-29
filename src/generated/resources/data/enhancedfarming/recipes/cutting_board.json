@@ -3,13 +3,13 @@
   "category": "equipment",
   "key": {
     "I": {
-      "tag": "forge:ingots/iron"
+      "tag": "c:ingots/iron"
     },
     "P": {
       "tag": "minecraft:planks"
     },
     "S": {
-      "tag": "forge:rods/wooden"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [
@@ -17,6 +17,7 @@
     "SPP"
   ],
   "result": {
-    "item": "enhancedfarming:cutting_board"
+    "count": 1,
+    "id": "enhancedfarming:cutting_board"
   }
 }

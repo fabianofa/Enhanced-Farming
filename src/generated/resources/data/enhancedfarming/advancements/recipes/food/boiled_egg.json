@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:eggs"
+            "items": "#c:eggs"
           }
         ]
       },
@@ -15,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -33,7 +31,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:water"
+            "items": "#c:water"
           }
         ]
       },

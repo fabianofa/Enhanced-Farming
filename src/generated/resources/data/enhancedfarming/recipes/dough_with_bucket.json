@@ -6,13 +6,14 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "tag": "forge:edible_salt"
+      "tag": "c:foods/edible_salt"
     },
     {
-      "tag": "forge:flour/wheat"
+      "tag": "c:flour/wheat"
     }
   ],
   "result": {
-    "item": "enhancedfarming:dough"
+    "count": 1,
+    "id": "enhancedfarming:dough"
   }
 }

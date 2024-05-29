@@ -85,9 +85,9 @@ public class SixAgeCropBlock extends CropBlock {
 				int i = this.getAge(state);
 				if (i < this.getMaxAge()) {
 					float f = getGrowthSpeed(this, serverLevel, pos);
-					if (CommonHooks.onCropsGrowPre(serverLevel, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
+					if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(serverLevel, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
 						serverLevel.setBlock(pos, this.getStateForAge(i + 1), 2);
-						CommonHooks.onCropsGrowPost(serverLevel, pos, state);
+						net.neoforged.neoforge.common.CommonHooks.fireCropGrowPost(serverLevel, pos, state);
 					}
 				}
 			}

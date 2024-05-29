@@ -9,13 +9,14 @@
       "item": "enhancedfarming:dough"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "tag": "c:foods/vegetables/tomato"
     },
     {
-      "tag": "forge:raw_beef"
+      "tag": "c:foods/raw_beef"
     }
   ],
   "result": {
-    "item": "enhancedfarming:bacon_pizza"
+    "count": 1,
+    "id": "enhancedfarming:bacon_pizza"
   }
 }

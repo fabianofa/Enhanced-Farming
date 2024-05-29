@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:olive_oil"
-            ]
+            "items": "enhancedfarming:olive_oil"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -29,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:raw_fish"
+            "items": "#c:foods/raw_fish"
           }
         ]
       },
@@ -39,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:raw_fries"
-            ]
+            "items": "enhancedfarming:raw_fries"
           }
         ]
       },

@@ -1,23 +1,31 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_beef": {
+    "has_cutting_board": {
       "conditions": {
         "items": [
           {
-            "tag": "forge:cooked_beef"
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_cutting_board": {
+    "has_foods/cooked_beef": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "#c:foods/cooked_beef"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/tomato"
           }
         ]
       },
@@ -27,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:sliced_bread"
-            ]
+            "items": "enhancedfarming:sliced_bread"
           }
         ]
       },
@@ -40,16 +46,6 @@
         "recipe": "enhancedfarming:sandwich/bacon_sandwich"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/tomato": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/tomato"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -57,8 +53,8 @@
       "has_the_recipe",
       "has_cutting_board",
       "has_sliced_bread",
-      "has_vegetables/tomato",
-      "has_cooked_beef"
+      "has_foods/vegetables/tomato",
+      "has_foods/cooked_beef"
     ]
   ],
   "rewards": {

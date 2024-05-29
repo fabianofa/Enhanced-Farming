@@ -5,9 +5,37 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/raw_chicken": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/raw_chicken"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/carrot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/carrot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods/vegetables/onion": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetables/onion"
           }
         ]
       },
@@ -17,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pasta"
-            ]
+            "items": "enhancedfarming:pasta"
           }
         ]
       },
@@ -29,19 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_raw_chicken": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:raw_chicken"
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -51,9 +65,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:stock"
-            ]
+            "items": "enhancedfarming:stock"
           }
         ]
       },
@@ -64,26 +76,6 @@
         "recipe": "enhancedfarming:soup/chicken_noodle_soup"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables/carrot": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/carrot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_vegetables/onion": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:vegetables/onion"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -93,9 +85,9 @@
       "has_cutting_board",
       "has_stock",
       "has_pasta",
-      "has_vegetables/onion",
-      "has_vegetables/carrot",
-      "has_raw_chicken"
+      "has_foods/vegetables/onion",
+      "has_foods/vegetables/carrot",
+      "has_foods/raw_chicken"
     ]
   ],
   "rewards": {

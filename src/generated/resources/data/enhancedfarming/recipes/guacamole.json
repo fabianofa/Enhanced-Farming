@@ -6,13 +6,14 @@
       "item": "enhancedfarming:cutting_board"
     },
     {
-      "tag": "forge:fruits/avocado"
+      "tag": "c:foods/fruits/avocado"
     },
     {
       "item": "minecraft:bowl"
     }
   ],
   "result": {
-    "item": "enhancedfarming:guacamole"
+    "count": 1,
+    "id": "enhancedfarming:guacamole"
   }
 }

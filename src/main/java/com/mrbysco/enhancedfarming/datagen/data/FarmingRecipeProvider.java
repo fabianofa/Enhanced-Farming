@@ -20,12 +20,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.crafting.NBTIngredient;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.ArrayList;
@@ -38,21 +36,21 @@ public class FarmingRecipeProvider extends RecipeProvider {
 		super(packOutput, lookupProvider);
 	}
 
-	private static final TagKey<Item> FLOUR_TAG = createForgeTag("flour/wheat");
+	private static final TagKey<Item> FLOUR_TAG = createCTag("flour/wheat");
 
 	@Override
 	protected void buildRecipes(RecipeOutput recipeOutput) {
-		final ItemStack waterBottle = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
+		final ItemStack waterBottle = Items.POTION.getDefaultInstance();
 
-		generateSapling(recipeOutput, FarmingRegistry.APPLE_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/apple");
-		generateSapling(recipeOutput, FarmingRegistry.LEMON_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/lemon");
-		generateSapling(recipeOutput, FarmingRegistry.ORANGE_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/orange");
-		generateSapling(recipeOutput, FarmingRegistry.CHERRY_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/cherry");
-		generateSapling(recipeOutput, FarmingRegistry.PEAR_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/pear");
-		generateSapling(recipeOutput, FarmingRegistry.BANANA_SAPLING_ITEM, Items.JUNGLE_SAPLING, "fruits/banana");
-		generateSapling(recipeOutput, FarmingRegistry.AVOCADO_SAPLING_ITEM, Items.ACACIA_SAPLING, "fruits/avocado");
-		generateSapling(recipeOutput, FarmingRegistry.MANGO_SAPLING_ITEM, Items.OAK_SAPLING, "fruits/mango");
-		generateSapling(recipeOutput, FarmingRegistry.OLIVE_SAPLING_ITEM, Items.ACACIA_SAPLING, "vegetables/olive");
+		generateSapling(recipeOutput, FarmingRegistry.APPLE_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/apple");
+		generateSapling(recipeOutput, FarmingRegistry.LEMON_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/lemon");
+		generateSapling(recipeOutput, FarmingRegistry.ORANGE_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/orange");
+		generateSapling(recipeOutput, FarmingRegistry.CHERRY_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/cherry");
+		generateSapling(recipeOutput, FarmingRegistry.PEAR_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/pear");
+		generateSapling(recipeOutput, FarmingRegistry.BANANA_SAPLING_ITEM, Items.JUNGLE_SAPLING, "foods/fruits/banana");
+		generateSapling(recipeOutput, FarmingRegistry.AVOCADO_SAPLING_ITEM, Items.ACACIA_SAPLING, "foods/fruits/avocado");
+		generateSapling(recipeOutput, FarmingRegistry.MANGO_SAPLING_ITEM, Items.OAK_SAPLING, "foods/fruits/mango");
+		generateSapling(recipeOutput, FarmingRegistry.OLIVE_SAPLING_ITEM, Items.ACACIA_SAPLING, "foods/vegetables/olive");
 
 		generatePie(recipeOutput, FarmingRegistry.APPLE_PIE, "sugar", "eggs");
 		generatePie(recipeOutput, FarmingRegistry.BANANA_PIE, "sugar", "eggs", "milk");
@@ -61,34 +59,34 @@ public class FarmingRecipeProvider extends RecipeProvider {
 		generatePie(recipeOutput, FarmingRegistry.LEMON_PIE, "sugar", "eggs");
 		generatePie(recipeOutput, FarmingRegistry.PEAR_PIE, "sugar", "eggs");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.BACON_AND_EGG_PIE.get())
-				.requires(createTag("raw_beef"))
+				.requires(createTag("foods/raw_beef"))
 				.requires(createTag("eggs"))
 				.requires(createTag("dough/wheat"))
-				.unlockedBy("has_beef", has(createTag("raw_beef")))
+				.unlockedBy("has_beef", has(createTag("foods/raw_beef")))
 				.unlockedBy("has_egg", has(createTag("eggs")))
 				.unlockedBy("has_dough", has(createTag("dough/wheat")))
 				.save(recipeOutput, FarmingRegistry.BACON_AND_EGG_PIE.getId().withPrefix("pie/"));
 
-		generateJuice(recipeOutput, FarmingRegistry.APPLE_JUICE, "fruits/apple");
-		generateJuice(recipeOutput, FarmingRegistry.LEMONADE, "fruits/lemon");
-		generateJuice(recipeOutput, FarmingRegistry.ORANGE_JUICE, "fruits/orange");
-		generateJuice(recipeOutput, FarmingRegistry.CHERRY_JUICE, "fruits/cherry");
-		generateJuice(recipeOutput, FarmingRegistry.PEAR_JUICE, "fruits/pear");
-		generateJuice(recipeOutput, FarmingRegistry.BANANA_JUICE, "fruits/banana");
-		generateJuice(recipeOutput, FarmingRegistry.GRAPE_JUICE, "fruits/grape");
-		generateJuice(recipeOutput, FarmingRegistry.MANGO_JUICE, "fruits/mango");
-		generateJuice(recipeOutput, FarmingRegistry.PINEAPPLE_JUICE, "fruits/pineapple");
+		generateJuice(recipeOutput, FarmingRegistry.APPLE_JUICE, "foods/fruits/apple");
+		generateJuice(recipeOutput, FarmingRegistry.LEMONADE, "foods/fruits/lemon");
+		generateJuice(recipeOutput, FarmingRegistry.ORANGE_JUICE, "foods/fruits/orange");
+		generateJuice(recipeOutput, FarmingRegistry.CHERRY_JUICE, "foods/fruits/cherry");
+		generateJuice(recipeOutput, FarmingRegistry.PEAR_JUICE, "foods/fruits/pear");
+		generateJuice(recipeOutput, FarmingRegistry.BANANA_JUICE, "foods/fruits/banana");
+		generateJuice(recipeOutput, FarmingRegistry.GRAPE_JUICE, "foods/fruits/grape");
+		generateJuice(recipeOutput, FarmingRegistry.MANGO_JUICE, "foods/fruits/mango");
+		generateJuice(recipeOutput, FarmingRegistry.PINEAPPLE_JUICE, "foods/fruits/pineapple");
 
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_APPLE, "fruits/apple");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_BANANA, "fruits/banana");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_CHERRY, "fruits/1cherry");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_CUCUMBER, "vegetables/cucumber");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_GRAPE, "fruits/grapes");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_LEMON, "fruits/lemon");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_MANGO, "fruits/mango");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_ORANGE, "fruits/orange");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_PEAR, "fruits/pear");
-		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_PINEAPPLE, "fruits/pineapple");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_APPLE, "foods/fruits/apple");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_BANANA, "foods/fruits/banana");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_CHERRY, "foods/fruits/1cherry");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_CUCUMBER, "foods/vegetables/cucumber");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_GRAPE, "foods/fruits/grapes");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_LEMON, "foods/fruits/lemon");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_MANGO, "foods/fruits/mango");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_ORANGE, "foods/fruits/orange");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_PEAR, "foods/fruits/pear");
+		generateSmoothie(recipeOutput, FarmingRegistry.SMOOTHIE_PINEAPPLE, "foods/fruits/pineapple");
 
 		generateSeed(recipeOutput, FarmingRegistry.TOMATO_SEEDS, FarmingRegistry.TOMATO.get());
 		generateSeed(recipeOutput, FarmingRegistry.CUCUMBER_SEEDS, FarmingRegistry.CUCUMBER.get());
@@ -107,7 +105,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 						FarmingRegistry.HOT_CHOCOLATE_BOTTLE.get(), 0.25F, 200)
 				.unlockedBy("has_item", has(FarmingRegistry.COLD_CHOCOLATE_BOTTLE.get()))
 				.save(recipeOutput, FarmingRegistry.HOT_CHOCOLATE_BOTTLE.getId().withPrefix("cooking/"));
-		SimpleCookingRecipeBuilder.smelting(NBTIngredient.of(true, waterBottle), RecipeCategory.FOOD,
+		SimpleCookingRecipeBuilder.smelting(DataComponentIngredient.of(true, waterBottle), RecipeCategory.FOOD,
 						FarmingRegistry.HOT_WATER.get(), 0.25F, 200)
 				.unlockedBy("has_item", has(Items.POTION))
 				.save(recipeOutput, FarmingRegistry.HOT_WATER.getId().withPrefix("cooking/"));
@@ -121,20 +119,20 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Soup
-		generateSoup(recipeOutput, FarmingRegistry.CARROT_SOUP, "vegetables/carrot");
-		generateNoodleSoup(recipeOutput, FarmingRegistry.CHICKEN_NOODLE_SOUP, "vegetables/onion", "vegetables/carrot", "raw_chicken");
-		generateSoup(recipeOutput, FarmingRegistry.CORN_SOUP, "vegetables/corn");
-		generateSoup(recipeOutput, FarmingRegistry.CUCUMBER_SOUP, "vegetables/cucumber");
-		generateSoup(recipeOutput, FarmingRegistry.ONION_SOUP, "vegetables/onion");
-		generateSoup(recipeOutput, FarmingRegistry.POTATO_SOUP, "vegetables/potato");
-		generateSoup(recipeOutput, FarmingRegistry.TOMATO_SOUP, "vegetables/tomato");
+		generateSoup(recipeOutput, FarmingRegistry.CARROT_SOUP, "foods/vegetables/carrot");
+		generateNoodleSoup(recipeOutput, FarmingRegistry.CHICKEN_NOODLE_SOUP, "foods/vegetables/onion", "foods/vegetables/carrot", "foods/raw_chicken");
+		generateSoup(recipeOutput, FarmingRegistry.CORN_SOUP, "foods/vegetables/corn");
+		generateSoup(recipeOutput, FarmingRegistry.CUCUMBER_SOUP, "foods/vegetables/cucumber");
+		generateSoup(recipeOutput, FarmingRegistry.ONION_SOUP, "foods/vegetables/onion");
+		generateSoup(recipeOutput, FarmingRegistry.POTATO_SOUP, "foods/vegetables/potato");
+		generateSoup(recipeOutput, FarmingRegistry.TOMATO_SOUP, "foods/vegetables/tomato");
 
 		//Salad
-		generateSalad(recipeOutput, FarmingRegistry.FRUIT_SALAD, "fruits", "fruits");
-		generateSalad(recipeOutput, FarmingRegistry.SALAD, "vegetables/lettuce", "vegetables/tomato", "vegetables/onion");
+		generateSalad(recipeOutput, FarmingRegistry.FRUIT_SALAD, "foods/fruits", "foods/fruits");
+		generateSalad(recipeOutput, FarmingRegistry.SALAD, "foods/vegetables/lettuce", "foods/vegetables/tomato", "foods/vegetables/onion");
 
 		//Dough
-		TagKey<Item> saltTag = createTag("edible_salt");
+		TagKey<Item> saltTag = createTag("foods/edible_salt");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.FLOUR.get())
 				.requires(Tags.Items.CROPS_WHEAT)
 				.requires(FarmingRegistry.MORTAR_AND_PESTLE.get())
@@ -143,7 +141,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.DOUGH.get())
-				.requires(NBTIngredient.of(true, waterBottle))
+				.requires(DataComponentIngredient.of(true, waterBottle))
 				.requires(saltTag)
 				.requires(FLOUR_TAG)
 				.unlockedBy("has_water", has(Items.POTION))
@@ -169,7 +167,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.SALT.get())
 				.requires(FarmingRegistry.POT.get())
-				.requires(NBTIngredient.of(true, waterBottle))
+				.requires(DataComponentIngredient.of(true, waterBottle))
 				.unlockedBy("has_pot", has(FarmingRegistry.POT.get()))
 				.unlockedBy("has_water_bottle", has(Items.GLASS_BOTTLE))
 				.save(recipeOutput);
@@ -183,8 +181,8 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Burger
-		TagKey<Item> cookedBeefTag = createTag("cooked_beef");
-		TagKey<Item> lettuceTag = createTag("vegetables/lettuce");
+		TagKey<Item> cookedBeefTag = createTag("foods/cooked_beef");
+		TagKey<Item> lettuceTag = createTag("foods/vegetables/lettuce");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.HAMBURGER.get())
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
 				.requires(Items.BREAD)
@@ -195,7 +193,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_cooked_beef", has(cookedBeefTag))
 				.unlockedBy("has_lettuce", has(lettuceTag))
 				.save(recipeOutput);
-		TagKey<Item> cheeseTag = createTag("cheeses/normal");
+		TagKey<Item> cheeseTag = createTag("foods/cheeses/normal");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.CHEESEBURGER.get())
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
 				.requires(Items.BREAD)
@@ -206,7 +204,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_cooked_beef", has(cookedBeefTag))
 				.unlockedBy("has_cheese", has(cheeseTag))
 				.save(recipeOutput);
-		TagKey<Item> cookedChickenTag = createTag("cooked_chicken");
+		TagKey<Item> cookedChickenTag = createTag("foods/cooked_chicken");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.CHICKENBURGER.get())
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
 				.requires(Items.BREAD)
@@ -243,27 +241,25 @@ public class FarmingRecipeProvider extends RecipeProvider {
 
 
 		//Stock
-		TagKey<Item> vegetablesTag = createTag("vegetables");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.STOCK.get(), 2)
 				.requires(FarmingRegistry.POT.get())
 				.requires(waterTag)
 				.requires(Items.BOWL)
-				.requires(vegetablesTag)
+				.requires(Tags.Items.FOODS_VEGETABLES)
 				.unlockedBy("has_pot", has(FarmingRegistry.POT.get()))
 				.unlockedBy("has_water", has(waterTag))
 				.unlockedBy("has_bowl", has(Items.BOWL))
-				.unlockedBy("has_vegetables", has(vegetablesTag))
+				.unlockedBy("has_vegetables", has(Tags.Items.FOODS_VEGETABLES))
 				.save(recipeOutput);
-		TagKey<Item> rawmeatsTag = createTag("rawmeats");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.STOCK.get(), 2)
 				.requires(FarmingRegistry.POT.get())
 				.requires(waterTag)
 				.requires(Items.BOWL)
-				.requires(rawmeatsTag)
+				.requires(Tags.Items.FOODS_RAW_MEATS)
 				.unlockedBy("has_pot", has(FarmingRegistry.POT.get()))
 				.unlockedBy("has_water", has(waterTag))
 				.unlockedBy("has_bowl", has(Items.BOWL))
-				.unlockedBy("has_rawmeats", has(rawmeatsTag))
+				.unlockedBy("has_rawmeats", has(Tags.Items.FOODS_RAW_MEATS))
 				.save(recipeOutput, FarmingRegistry.STOCK.getId().withSuffix("_alt"));
 
 		//Gold fruit
@@ -271,16 +267,16 @@ public class FarmingRecipeProvider extends RecipeProvider {
 		generateGolden(recipeOutput, FarmingRegistry.GOLDEN_ORANGE, FarmingRegistry.ORANGE);
 
 		//Pizza
-		generatePizza(recipeOutput, FarmingRegistry.PINEAPPLE_PIZZA, "vegetables/tomato", "fruits/pineapple");
-		generatePizza(recipeOutput, FarmingRegistry.CHEESE_PIZZA, "vegetables/tomato", "cheeses/normal");
-		generatePizza(recipeOutput, FarmingRegistry.BACON_PIZZA, "vegetables/tomato", "raw_beef");
+		generatePizza(recipeOutput, FarmingRegistry.PINEAPPLE_PIZZA, "foods/vegetables/tomato", "foods/fruits/pineapple");
+		generatePizza(recipeOutput, FarmingRegistry.CHEESE_PIZZA, "foods/vegetables/tomato", "foods/cheeses/normal");
+		generatePizza(recipeOutput, FarmingRegistry.BACON_PIZZA, "foods/vegetables/tomato", "foods/raw_beef");
 
 		//Sandwich
-		generateSandwich(recipeOutput, FarmingRegistry.JC_SANDWICH, List.of("cheeses/normal"), FarmingRegistry.JAM.get());
+		generateSandwich(recipeOutput, FarmingRegistry.JC_SANDWICH, List.of("foods/cheeses/normal"), FarmingRegistry.JAM.get());
 		generateSandwich(recipeOutput, FarmingRegistry.EGG_SANDWICH, List.of(), FarmingRegistry.BAKED_EGG.get());
 		generateSandwichAlt(recipeOutput, FarmingRegistry.EGG_SANDWICH, List.of(), FarmingRegistry.BOILED_EGG.get());
-		generateSandwich(recipeOutput, FarmingRegistry.BACON_SANDWICH, List.of("vegetables/tomato", "cooked_beef"));
-		generateSandwich(recipeOutput, FarmingRegistry.CHICKEN_SANDWICH, List.of("cooked_chicken"));
+		generateSandwich(recipeOutput, FarmingRegistry.BACON_SANDWICH, List.of("foods/vegetables/tomato", "foods/cooked_beef"));
+		generateSandwich(recipeOutput, FarmingRegistry.CHICKEN_SANDWICH, List.of("foods/cooked_chicken"));
 
 		//Chocolate
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.COLD_CHOCOLATE_BOTTLE.get())
@@ -317,7 +313,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_cocoa_beans", has(Items.COCOA_BEANS))
 				.unlockedBy("has_sugar", has(sugarTag))
 				.save(recipeOutput);
-		TagKey<Item> bananaTag = createTag("fruits/banana");
+		TagKey<Item> bananaTag = createTag("foods/fruits/banana");
 		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FarmingRegistry.CHOCOLATE_BANANA.get())
 				.pattern(" C")
 				.pattern("CF")
@@ -326,7 +322,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_cocoa_beans", has(Items.COCOA_BEANS))
 				.unlockedBy("has_banana", has(bananaTag))
 				.save(recipeOutput);
-		TagKey<Item> cherryTag = createTag("fruits/cherry");
+		TagKey<Item> cherryTag = createTag("foods/fruits/cherry");
 		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FarmingRegistry.CHOCOLATE_CHERRY.get())
 				.pattern(" C")
 				.pattern("CF")
@@ -346,8 +342,8 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_dough", has(FarmingRegistry.DOUGH.get()))
 				.save(recipeOutput);
 		//Spaghetti
-		TagKey<Item> tomatoTag = createTag("vegetables/tomato");
-		TagKey<Item> rawBeefTag = createTag("raw_beef");
+		TagKey<Item> tomatoTag = createTag("foods/vegetables/tomato");
+		TagKey<Item> rawBeefTag = createTag("foods/raw_beef");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.SPAGHETTI.get())
 				.requires(FarmingRegistry.POT.get())
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
@@ -364,7 +360,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Fries
-		TagKey<Item> potatoTag = createTag("vegetables/potato");
+		TagKey<Item> potatoTag = createTag("foods/vegetables/potato");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.RAW_FRIES.get(), 2)
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
 				.requires(potatoTag)
@@ -380,7 +376,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_olive_oil", has(FarmingRegistry.OLIVE_OIL.get()))
 				.unlockedBy("has_raw_fries", has(FarmingRegistry.RAW_FRIES.get()))
 				.save(recipeOutput);
-		TagKey<Item> rawFishTag = createTag("raw_fish");
+		TagKey<Item> rawFishTag = createTag("foods/raw_fish");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.FISH_AND_CHIPS.get())
 				.requires(FarmingRegistry.POT.get())
 				.requires(FarmingRegistry.OLIVE_OIL.get())
@@ -391,7 +387,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_raw_fries", has(FarmingRegistry.RAW_FRIES.get()))
 				.unlockedBy("has_raw_fish", has(rawFishTag))
 				.save(recipeOutput);
-		TagKey<Item> cookedFishTag = createTag("cooked_fish");
+		TagKey<Item> cookedFishTag = createTag("foods/cooked_fish");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.FISH_AND_CHIPS.get())
 				.requires(FarmingRegistry.FRIES.get())
 				.requires(cookedFishTag)
@@ -420,7 +416,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Quac
-		TagKey<Item> avocadoTag = createTag("fruits/avocado");
+		TagKey<Item> avocadoTag = createTag("foods/fruits/avocado");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.GUACAMOLE.get())
 				.requires(FarmingRegistry.CUTTING_BOARD.get())
 				.requires(avocadoTag)
@@ -431,7 +427,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Jam
-		TagKey<Item> fruitsTag = createTag("fruits");
+		TagKey<Item> fruitsTag = Tags.Items.FOODS_FRUITS;
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.JAM.get())
 				.requires(FarmingRegistry.POT.get())
 				.requires(fruitsTag)
@@ -448,7 +444,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 
 		//Rake
 		generateRake(recipeOutput, FarmingRegistry.WOODEN_RAKE, ItemTags.PLANKS);
-		generateRake(recipeOutput, FarmingRegistry.STONE_RAKE, Tags.Items.COBBLESTONE);
+		generateRake(recipeOutput, FarmingRegistry.STONE_RAKE, Tags.Items.COBBLESTONES);
 		generateRake(recipeOutput, FarmingRegistry.IRON_RAKE, Tags.Items.INGOTS_IRON);
 		generateRake(recipeOutput, FarmingRegistry.GOLD_RAKE, Tags.Items.INGOTS_GOLD);
 		generateRake(recipeOutput, FarmingRegistry.DIAMOND_RAKE, Tags.Items.GEMS_DIAMOND);
@@ -458,9 +454,9 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.pattern("ISI")
 				.pattern(" I ")
 				.define('I', Tags.Items.INGOTS_IRON)
-				.define('S', Tags.Items.STONE)
+				.define('S', Tags.Items.STONES)
 				.unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
-				.unlockedBy("has_stone", has(Tags.Items.STONE))
+				.unlockedBy("has_stone", has(Tags.Items.STONES))
 				.save(recipeOutput);
 		ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, FarmingRegistry.CUTTING_BOARD.get())
 				.pattern(" I ")
@@ -476,9 +472,9 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.pattern(" S")
 				.pattern("B ")
 				.define('S', Tags.Items.INGOTS_IRON)
-				.define('B', Tags.Items.STONE)
+				.define('B', Tags.Items.STONES)
 				.unlockedBy("has_stick", has(Tags.Items.INGOTS_IRON))
-				.unlockedBy("has_stone", has(Tags.Items.STONE))
+				.unlockedBy("has_stone", has(Tags.Items.STONES))
 				.save(recipeOutput);
 
 		//Misc
@@ -505,7 +501,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Olive Oil
-		TagKey<Item> oliveTag = createTag("vegetables/olive");
+		TagKey<Item> oliveTag = createTag("foods/vegetables/olive");
 		new PistonRecipeBuilder(FarmingRegistry.OLIVE_OIL.get(), 1, Ingredient.of(oliveTag))
 				.unlockedBy("has_olive", has(FarmingRegistry.OLIVE.get()))
 				.save(recipeOutput, FarmingRegistry.OLIVE_OIL.getId().withPrefix("piston/"));
@@ -538,10 +534,10 @@ public class FarmingRecipeProvider extends RecipeProvider {
 
 	private void generateJuice(RecipeOutput recipeOutput, DeferredItem<? extends Item> juice, String tag) {
 		TagKey<Item> itemTag = createTag(tag);
-		ItemStack waterBottle = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
+		final ItemStack waterBottle = Items.POTION.getDefaultInstance();
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, juice.get())
-				.requires(NBTIngredient.of(true, waterBottle))
+				.requires(DataComponentIngredient.of(true, waterBottle))
 				.requires(itemTag)
 				.unlockedBy("has_item", has(itemTag))
 				.save(recipeOutput, juice.getId().withPrefix("juice/"));
@@ -775,11 +771,11 @@ public class FarmingRecipeProvider extends RecipeProvider {
 	}
 
 	private TagKey<Item> createTag(String name) {
-		return ItemTags.create(new ResourceLocation("forge", name));
+		return ItemTags.create(new ResourceLocation("c", name));
 	}
 
-	private static TagKey<Item> createForgeTag(String name) {
-		return ItemTags.create(new ResourceLocation("forge", name));
+	private static TagKey<Item> createCTag(String name) {
+		return ItemTags.create(new ResourceLocation("c", name));
 	}
 
 	//TODO: Disable advancement generation? I guess the overriding the buildAdvancement and returning null doesn't work anymore

@@ -6,7 +6,7 @@ import com.mrbysco.enhancedfarming.init.FarmingRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -37,7 +37,7 @@ public class FarmingVegetationPlacements {
 	public static final ResourceKey<PlacedFeature> BANANA = PlacementUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "banana").toString());
 	public static final ResourceKey<PlacedFeature> OLIVE = PlacementUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "olive").toString());
 
-	public static void bootstrap(BootstapContext<PlacedFeature> context) {
+	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> holdergetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
 		PlacementUtils.register(context, APPLE, holdergetter.getOrThrow(FarmingVegetation.APPLE_FRUIT_VEGETATION),

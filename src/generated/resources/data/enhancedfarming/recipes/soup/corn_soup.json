@@ -12,10 +12,11 @@
       "item": "enhancedfarming:stock"
     },
     {
-      "tag": "forge:vegetables/corn"
+      "tag": "c:foods/vegetables/corn"
     }
   ],
   "result": {
-    "item": "enhancedfarming:corn_soup"
+    "count": 1,
+    "id": "enhancedfarming:corn_soup"
   }
 }

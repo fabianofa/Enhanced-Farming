@@ -1,8 +1,7 @@
 {
   "neoforge:conditions": [
     {
-      "type": "enhancedfarming:rake_enabled",
-      "value": {}
+      "type": "enhancedfarming:rake_enabled"
     }
   ],
   "parent": "minecraft:recipes/root",
@@ -11,7 +10,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:gems/diamond"
+            "items": "#c:gems/diamond"
           }
         ]
       },
@@ -21,7 +20,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:rods/wooden"
+            "items": "#c:rods/wooden"
           }
         ]
       },

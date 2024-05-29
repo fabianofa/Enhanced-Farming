@@ -9,16 +9,17 @@
       "item": "enhancedfarming:cutting_board"
     },
     {
-      "tag": "forge:vegetables/lettuce"
+      "tag": "c:foods/vegetables/lettuce"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "tag": "c:foods/vegetables/tomato"
     },
     {
-      "tag": "forge:vegetables/onion"
+      "tag": "c:foods/vegetables/onion"
     }
   ],
   "result": {
-    "item": "enhancedfarming:salad"
+    "count": 1,
+    "id": "enhancedfarming:salad"
   }
 }

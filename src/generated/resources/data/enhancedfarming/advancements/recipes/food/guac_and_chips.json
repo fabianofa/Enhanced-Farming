@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:guacamole"
-            ]
+            "items": "enhancedfarming:guacamole"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:potato_chips"
-            ]
+            "items": "enhancedfarming:potato_chips"
           }
         ]
       },

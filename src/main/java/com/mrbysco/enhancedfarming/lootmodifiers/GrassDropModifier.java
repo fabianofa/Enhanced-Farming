@@ -2,7 +2,7 @@ package com.mrbysco.enhancedfarming.lootmodifiers;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mrbysco.enhancedfarming.config.FarmingConfig;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GrassDropModifier extends LootModifier {
-	public static final Supplier<Codec<GrassDropModifier>> CODEC = Suppliers.memoize(() ->
-			RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, GrassDropModifier::new)));
+	public static final Supplier<MapCodec<GrassDropModifier>> CODEC = Suppliers.memoize(() ->
+			RecordCodecBuilder.mapCodec(inst -> codecStart(inst).apply(inst, GrassDropModifier::new)));
 
 	public GrassDropModifier() {
 		super(new LootItemCondition[0]);
@@ -42,7 +42,7 @@ public class GrassDropModifier extends LootModifier {
 		BlockState state = context.getParamOrNull(LootContextParams.BLOCK_STATE);
 		ItemStack tool = context.getParamOrNull(LootContextParams.TOOL);
 		if (state != null && tool != null && context.getRandom().nextDouble() <= 0.1) {
-			if (state.getBlock() instanceof TallGrassBlock && !tool.is(Items.SHEARS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool) <= 0) {
+			if (state.getBlock() instanceof TallGrassBlock && !tool.is(Items.TOOLS_SHEARS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool) <= 0) {
 				List<ItemStack> extraLoot = new ArrayList<>();
 				if (FarmingConfig.COMMON.seedsFromGrass.get()) {
 					extraLoot.add(new ItemStack(FarmingRegistry.MINT_SEEDS.get()));
@@ -80,7 +80,7 @@ public class GrassDropModifier extends LootModifier {
 	}
 
 	@Override
-	public Codec<? extends IGlobalLootModifier> codec() {
+	public MapCodec<? extends IGlobalLootModifier> codec() {
 		return CODEC.get();
 	}
 }

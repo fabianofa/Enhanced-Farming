@@ -8,11 +8,14 @@ import com.mrbysco.enhancedfarming.block.crops.SixAgeCropBlock;
 import com.mrbysco.enhancedfarming.init.FarmingLootTables;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.packs.VanillaGiftLoot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -35,18 +38,17 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 public class FarmingLootProvider extends LootTableProvider {
-	public FarmingLootProvider(PackOutput packOutput) {
+	public FarmingLootProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
 		super(packOutput, Set.of(), List.of(
 				new SubProviderEntry(FarmingBlocks::new, LootContextParamSets.BLOCK),
 				new SubProviderEntry(FarmingRakeDrops::new, LootContextParamSets.GIFT)
-		));
+		), lookupProvider);
 	}
 
 	private static class FarmingBlocks extends BlockLootSubProvider {
@@ -119,7 +121,7 @@ public class FarmingLootProvider extends LootTableProvider {
 					.withPool(LootPool.lootPool().name("crop")
 							.add(LootItem.lootTableItem(cropItem).when(builder).otherwise(LootItem.lootTableItem(seeds))))
 					.withPool(LootPool.lootPool().name("seeds").when(builder)
-							.add(LootItem.lootTableItem(seeds).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3)))));
+							.add(LootItem.lootTableItem(seeds).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.FORTUNE, 0.5714286F, 3)))));
 		}
 
 		protected static LootTable.Builder createSilkTouchDispatchTable(Block block, LootPoolEntryContainer.Builder<?> builder) {
@@ -138,9 +140,9 @@ public class FarmingLootProvider extends LootTableProvider {
 
 		protected LootTable.Builder createLeavesDrops(Block leaves, Block sapling, float... chances) {
 			return createSilkTouchOrShearsDispatchTable(leaves, this.applyExplosionCondition(leaves, LootItem.lootTableItem(sapling))
-					.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, chances)))
+					.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, chances)))
 					.withPool(LootPool.lootPool().name("sticks").setRolls(ConstantValue.exactly(1.0F))
-							.when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionDecay(leaves, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, NORMAL_LEAVES_STICK_CHANCES))));
+							.when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionDecay(leaves, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, NORMAL_LEAVES_STICK_CHANCES))));
 		}
 
 		public LootItemCondition.Builder cropConditionBuilder(CropBlock block, IntegerProperty ageProperty) {
@@ -156,7 +158,7 @@ public class FarmingLootProvider extends LootTableProvider {
 
 	private static class FarmingRakeDrops extends VanillaGiftLoot {
 		@Override
-		public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+		public void generate(HolderLookup.Provider provider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
 			consumer.accept(FarmingLootTables.GAMEPLAY_RAKE_DROPS,
 					LootTable.lootTable()
 							.withPool(LootPool.lootPool().name("drops").setRolls(ConstantValue.exactly(1.0F))
@@ -185,7 +187,7 @@ public class FarmingLootProvider extends LootTableProvider {
 	}
 
 	@Override
-	protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationContext validationtracker) {
-		map.forEach((name, table) -> table.validate(validationtracker));
+	protected void validate(WritableRegistry<LootTable> writableregistry, ValidationContext validationcontext, ProblemReporter.Collector problemreporter$collector) {
+		super.validate(writableregistry, validationcontext, problemreporter$collector);
 	}
 }

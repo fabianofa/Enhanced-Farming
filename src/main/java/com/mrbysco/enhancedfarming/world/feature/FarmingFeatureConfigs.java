@@ -3,7 +3,7 @@ package com.mrbysco.enhancedfarming.world.feature;
 import com.mrbysco.enhancedfarming.EnhancedFarming;
 import com.mrbysco.enhancedfarming.block.crops.NetherFlowerBlock;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -213,7 +213,7 @@ public class FarmingFeatureConfigs {
 		private static final BlockState NETHER_FLOWER_CROP = FarmingRegistry.NETHER_FLOWER_CROP.get().defaultBlockState().setValue(NetherFlowerBlock.AGE, Integer.valueOf(5));
 	}
 
-	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		BeehiveDecorator BEEHIVE_0002 = new BeehiveDecorator(0.002F);
 		BeehiveDecorator BEEHIVE_002 = new BeehiveDecorator(0.02F);
 		BeehiveDecorator BEEHIVE_005 = new BeehiveDecorator(0.05F);

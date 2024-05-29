@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bowl"
-            ]
+            "items": "minecraft:bowl"
           }
         ]
       },
@@ -17,19 +15,17 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_fruits": {
+    "has_foods/fruits": {
       "conditions": {
         "items": [
           {
-            "tag": "forge:fruits"
+            "items": "#c:foods/fruits"
           }
         ]
       },
@@ -47,7 +43,7 @@
       "has_the_recipe",
       "has_bowl",
       "has_cutting_board",
-      "has_fruits"
+      "has_foods/fruits"
     ]
   ],
   "rewards": {

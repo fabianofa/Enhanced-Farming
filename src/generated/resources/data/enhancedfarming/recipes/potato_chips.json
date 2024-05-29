@@ -9,16 +9,17 @@
       "item": "enhancedfarming:cutting_board"
     },
     {
-      "tag": "forge:vegetables/potato"
+      "tag": "c:foods/vegetables/potato"
     },
     {
       "item": "enhancedfarming:olive_oil"
     },
     {
-      "tag": "forge:edible_salt"
+      "tag": "c:foods/edible_salt"
     }
   ],
   "result": {
-    "item": "enhancedfarming:potato_chips"
+    "count": 1,
+    "id": "enhancedfarming:potato_chips"
   }
 }

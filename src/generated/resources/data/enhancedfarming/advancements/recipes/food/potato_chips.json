@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:cutting_board"
-            ]
+            "items": "enhancedfarming:cutting_board"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:olive_oil"
-            ]
+            "items": "enhancedfarming:olive_oil"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:pot"
-            ]
+            "items": "enhancedfarming:pot"
           }
         ]
       },
@@ -41,7 +35,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:vegetables/potato"
+            "items": "#c:foods/vegetables/potato"
           }
         ]
       },
@@ -51,7 +45,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:edible_salt"
+            "items": "#c:foods/edible_salt"
           }
         ]
       },

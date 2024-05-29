@@ -9,13 +9,14 @@
       "item": "minecraft:bread"
     },
     {
-      "tag": "forge:cooked_beef"
+      "tag": "c:foods/cooked_beef"
     },
     {
-      "tag": "forge:cheeses/normal"
+      "tag": "c:foods/cheeses/normal"
     }
   ],
   "result": {
-    "item": "enhancedfarming:cheeseburger"
+    "count": 1,
+    "id": "enhancedfarming:cheeseburger"
   }
 }

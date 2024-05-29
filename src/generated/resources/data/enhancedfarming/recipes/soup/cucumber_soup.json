@@ -12,10 +12,11 @@
       "item": "enhancedfarming:stock"
     },
     {
-      "tag": "forge:vegetables/cucumber"
+      "tag": "c:foods/vegetables/cucumber"
     }
   ],
   "result": {
-    "item": "enhancedfarming:cucumber_soup"
+    "count": 1,
+    "id": "enhancedfarming:cucumber_soup"
   }
 }

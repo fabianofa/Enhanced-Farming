@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enhancedfarming:chocolate_bar"
-            ]
+            "items": "enhancedfarming:chocolate_bar"
           }
         ]
       },
@@ -17,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:herbs/mint"
+            "items": "#c:herbs/mint"
           }
         ]
       },
