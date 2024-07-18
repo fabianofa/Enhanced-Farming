@@ -8,7 +8,7 @@ Enhanced Farming is a revival of the old 1.6.2 mod "Better Farming" by iBlackSha
 
 ## License ##
 * Enhanced Farming is licensed under the MIT License
-  - (c) 2018 Mrbysco
+  - (c) 2024 Mrbysco
   - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat)](http://opensource.org/licenses/MIT)
   
 ## Downloads ##
