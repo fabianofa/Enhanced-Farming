@@ -25,7 +25,7 @@
                         "predicates": {
                           "minecraft:enchantments": [
                             {
-                              "enchantment": "minecraft:silk_touch",
+                              "enchantments": "minecraft:silk_touch",
                               "levels": {
                                 "min": 1
                               }
@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "enhancedfarming:lemon_leaves"
+              "name": "enhancedfarming:mango_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,12 +56,11 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "enhancedfarming:lemon_sapling"
+              "name": "enhancedfarming:mango_sapling"
             }
           ]
         }
       ],
-      "name": "drops",
       "rolls": 1.0
     },
     {
@@ -84,7 +83,7 @@
                   "predicates": {
                     "minecraft:enchantments": [
                       {
-                        "enchantment": "minecraft:silk_touch",
+                        "enchantments": "minecraft:silk_touch",
                         "levels": {
                           "min": 1
                         }
@@ -134,5 +133,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "enhancedfarming:blocks/lemon_leaves"
+  "random_sequence": "enhancedfarming:blocks/mango_leaves"
 }

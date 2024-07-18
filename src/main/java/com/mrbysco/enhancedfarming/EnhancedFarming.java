@@ -54,7 +54,6 @@ public class EnhancedFarming {
 		NeoForge.EVENT_BUS.register(new HotHandler());
 		NeoForge.EVENT_BUS.register(new RakeHandler());
 
-
 		if (dist.isClient()) {
 			eventBus.addListener(ClientHandler::registerBlockColors);
 			eventBus.addListener(ClientHandler::registerItemColors);

@@ -65,7 +65,7 @@ public class SpecialCustomFoodItem extends CustomFoodItem {
 	public ItemStack eatStack(LivingEntity livingEntity, Level level, ItemStack stack, boolean useFood) {
 		if (livingEntity instanceof Player player) {
 			if (useFood) {
-				player.getFoodData().eat(stack, player);
+				player.getFoodData().eat(stack.getFoodProperties(player));
 			}
 			player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
 			level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);

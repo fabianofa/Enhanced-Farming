@@ -4,16 +4,15 @@ import com.mrbysco.enhancedfarming.recipes.FarmingRecipes;
 import com.mrbysco.enhancedfarming.recipes.PistonRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity.RemovalReason;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.neoforge.event.level.PistonEvent;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.level.PistonEvent;
 
 import java.util.List;
 
@@ -32,8 +31,9 @@ public class InWorldCraftingHandler {
 			if (!itemEntities.isEmpty()) {
 				for (ItemEntity itemEntity : itemEntities) {
 					BlockPos itemPos = itemEntity.blockPosition();
-					Container inventory = new SimpleContainer(itemEntity.getItem().copy());
-					RecipeHolder<PistonRecipe> recipeHolder = serverLevel.getRecipeManager().getRecipeFor(FarmingRecipes.PISTON_CRAFTING_TYPE.get(), inventory, serverLevel).orElse(null);
+					SingleRecipeInput input = new SingleRecipeInput(itemEntity.getItem().copy());
+					RecipeHolder<PistonRecipe> recipeHolder = serverLevel.getRecipeManager()
+							.getRecipeFor(FarmingRecipes.PISTON_CRAFTING_TYPE.get(), input, serverLevel).orElse(null);
 					if (recipeHolder != null) {
 						ItemStack stack = itemEntity.getItem();
 						int craftPer = 0;

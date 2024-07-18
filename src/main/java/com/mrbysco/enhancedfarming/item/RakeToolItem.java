@@ -3,6 +3,7 @@ package com.mrbysco.enhancedfarming.item;
 import com.mrbysco.enhancedfarming.init.FarmingActions;
 import com.mrbysco.enhancedfarming.init.FarmingLootTables;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,7 +27,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ItemAbility;
 
 public class RakeToolItem extends DiggerItem {
 	private final int dropModifier;
@@ -41,13 +42,13 @@ public class RakeToolItem extends DiggerItem {
 				.add(
 						Attributes.ATTACK_DAMAGE,
 						new AttributeModifier(
-								BASE_ATTACK_DAMAGE_UUID, "Tool modifier", (double)(attackDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE
+								ResourceLocation.fromNamespaceAndPath("enhancedfarming", "rake_attack_damage"), (double) (attackDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE
 						),
 						EquipmentSlotGroup.MAINHAND
 				)
 				.add(
 						Attributes.ATTACK_SPEED,
-						new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+						new AttributeModifier(ResourceLocation.fromNamespaceAndPath("enhancedfarming", "rake_attack_speed"), (double) attackSpeed, AttributeModifier.Operation.ADD_VALUE),
 						EquipmentSlotGroup.MAINHAND
 				)
 				.build();
@@ -94,7 +95,7 @@ public class RakeToolItem extends DiggerItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+	public boolean canPerformAction(ItemStack stack, ItemAbility toolAction) {
 		return FarmingActions.DEFAULT_RAKE_ACTIONS.contains(toolAction);
 	}
 }

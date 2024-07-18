@@ -9,6 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class FarmingTags {
-	public static final TagKey<Item> HOT_ITEMS = ItemTags.create(new ResourceLocation(EnhancedFarming.MOD_ID, "hot_items"));
-	public static final TagKey<Block> RAKE_BLOCKS = BlockTags.create(new ResourceLocation(EnhancedFarming.MOD_ID, "rake_blocks"));
+	public static final TagKey<Item> HOT_ITEMS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, "hot_items"));
+	public static final TagKey<Block> RAKE_BLOCKS = BlockTags.create(ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, "rake_blocks"));
 }

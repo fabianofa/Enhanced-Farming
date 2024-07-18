@@ -23,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 public class FarmingItemTagProvider extends ItemTagsProvider {
 
 	public FarmingItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
-								  CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
+	                              CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
 		super(output, lookupProvider, blockTagProvider, EnhancedFarming.MOD_ID, existingFileHelper);
 	}
 
@@ -137,6 +137,6 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 	}
 
 	private TagKey<Item> createCommonTag(String name) {
-		return ItemTags.create(new ResourceLocation("c", name));
+		return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", name));
 	}
 }

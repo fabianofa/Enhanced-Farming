@@ -1,6 +1,5 @@
 package com.mrbysco.enhancedfarming.init;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mrbysco.enhancedfarming.EnhancedFarming;
 import com.mrbysco.enhancedfarming.init.conditions.CropToSeedCondition;

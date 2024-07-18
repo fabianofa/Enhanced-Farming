@@ -245,21 +245,21 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.requires(FarmingRegistry.POT.get())
 				.requires(waterTag)
 				.requires(Items.BOWL)
-				.requires(Tags.Items.FOODS_VEGETABLES)
+				.requires(Tags.Items.FOODS_VEGETABLE)
 				.unlockedBy("has_pot", has(FarmingRegistry.POT.get()))
 				.unlockedBy("has_water", has(waterTag))
 				.unlockedBy("has_bowl", has(Items.BOWL))
-				.unlockedBy("has_vegetables", has(Tags.Items.FOODS_VEGETABLES))
+				.unlockedBy("has_vegetables", has(Tags.Items.FOODS_VEGETABLE))
 				.save(recipeOutput);
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, FarmingRegistry.STOCK.get(), 2)
 				.requires(FarmingRegistry.POT.get())
 				.requires(waterTag)
 				.requires(Items.BOWL)
-				.requires(Tags.Items.FOODS_RAW_MEATS)
+				.requires(Tags.Items.FOODS_RAW_MEAT)
 				.unlockedBy("has_pot", has(FarmingRegistry.POT.get()))
 				.unlockedBy("has_water", has(waterTag))
 				.unlockedBy("has_bowl", has(Items.BOWL))
-				.unlockedBy("has_rawmeats", has(Tags.Items.FOODS_RAW_MEATS))
+				.unlockedBy("has_rawmeats", has(Tags.Items.FOODS_RAW_MEAT))
 				.save(recipeOutput, FarmingRegistry.STOCK.getId().withSuffix("_alt"));
 
 		//Gold fruit
@@ -427,7 +427,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 				.save(recipeOutput);
 
 		//Jam
-		TagKey<Item> fruitsTag = Tags.Items.FOODS_FRUITS;
+		TagKey<Item> fruitsTag = Tags.Items.FOODS_FRUIT;
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FarmingRegistry.JAM.get())
 				.requires(FarmingRegistry.POT.get())
 				.requires(fruitsTag)
@@ -509,7 +509,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 
 	private void generateFurnace(RecipeOutput recipeOutput, Item output, String ingredientTag) {
 		TagKey<Item> itemTag = createTag(ingredientTag);
-		ResourceLocation id = new ResourceLocation(EnhancedFarming.MOD_ID, BuiltInRegistries.ITEM.getKey(output).getPath()).withPrefix("cooking/");
+		ResourceLocation id = ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, BuiltInRegistries.ITEM.getKey(output).getPath()).withPrefix("cooking/");
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(itemTag), RecipeCategory.FOOD, output, 0.35F, 200)
 				.unlockedBy("has_item", has(itemTag))
@@ -521,7 +521,7 @@ public class FarmingRecipeProvider extends RecipeProvider {
 	}
 
 	private void generateFurnace(RecipeOutput recipeOutput, Item output, Item ingredient) {
-		ResourceLocation id = new ResourceLocation(EnhancedFarming.MOD_ID, BuiltInRegistries.ITEM.getKey(output).getPath()).withPrefix("cooking/");
+		ResourceLocation id = ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, BuiltInRegistries.ITEM.getKey(output).getPath()).withPrefix("cooking/");
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.FOOD, output, 0.35F, 200)
 				.unlockedBy("has_item", has(ingredient))
@@ -771,11 +771,11 @@ public class FarmingRecipeProvider extends RecipeProvider {
 	}
 
 	private TagKey<Item> createTag(String name) {
-		return ItemTags.create(new ResourceLocation("c", name));
+		return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", name));
 	}
 
 	private static TagKey<Item> createCTag(String name) {
-		return ItemTags.create(new ResourceLocation("c", name));
+		return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", name));
 	}
 
 	//TODO: Disable advancement generation? I guess the overriding the buildAdvancement and returning null doesn't work anymore

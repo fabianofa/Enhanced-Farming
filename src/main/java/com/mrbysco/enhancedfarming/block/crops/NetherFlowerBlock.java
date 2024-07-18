@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -21,12 +22,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.CommonHooks;
-import net.neoforged.neoforge.common.PlantType;
-
-import java.util.Random;
 
 public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 	public static final MapCodec<NetherFlowerBlock> CODEC = simpleCodec(NetherFlowerBlock::new);
@@ -49,7 +47,8 @@ public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 		return CODEC;
 	}
 
-	public ItemStack getCloneItemStack(BlockGetter reader, BlockPos pos, BlockState state) {
+	@Override
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
 		return new ItemStack(FarmingRegistry.NETHER_FLOWER_SEEDS.get());
 	}
 
@@ -79,15 +78,12 @@ public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter blockGetter, BlockPos pos) {
-		return PlantType.NETHER;
-	}
-
 	public boolean isRandomlyTicking(BlockState state) {
 		return state.getValue(AGE) < 5;
 	}
 
-	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+	@Override
+	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		int i = state.getValue(AGE);
 		int maxAge = this.getMaxAge();
 		if (i < maxAge && net.neoforged.neoforge.common.CommonHooks.canCropGrow(level, pos, state, random.nextInt(10) == 0)) {
@@ -97,6 +93,7 @@ public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 		}
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {
 		return SHAPE_BY_AGE[state.getValue(AGE)];
 	}
@@ -137,6 +134,7 @@ public class NetherFlowerBlock extends BushBlock implements BonemealableBlock {
 		serverLevel.setBlock(pos, this.getStateForAge(i), 2);
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
 		stateBuilder.add(AGE);
 	}

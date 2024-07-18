@@ -7,15 +7,15 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public class PistonRecipe implements Recipe<Container> {
+public class PistonRecipe implements Recipe<RecipeInput> {
 	protected final String group;
 	protected final Ingredient ingredient;
 	protected final ItemStack result;
@@ -32,12 +32,12 @@ public class PistonRecipe implements Recipe<Container> {
 	}
 
 	@Override
-	public boolean matches(Container inv, Level level) {
-		return this.ingredient.test(inv.getItem(0));
+	public boolean matches(RecipeInput input, Level level) {
+		return this.ingredient.test(input.getItem(0));
 	}
 
-	public ItemStack assemble(Container inventory, HolderLookup.Provider registryAccess) {
-		return getResultItem(registryAccess);
+	public ItemStack assemble(RecipeInput input, HolderLookup.Provider registries) {
+		return getResultItem(registries);
 	}
 
 	public boolean canCraftInDimensions(int x, int y) {
@@ -50,7 +50,7 @@ public class PistonRecipe implements Recipe<Container> {
 		return nonnulllist;
 	}
 
-	public ItemStack getResultItem(HolderLookup.Provider registryAccess) {
+	public ItemStack getResultItem(HolderLookup.Provider registries) {
 		return this.result;
 	}
 

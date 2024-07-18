@@ -17,11 +17,15 @@ import java.util.List;
 
 public class FarmingVegetation {
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "apple_fruit_vegetation").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "lemon_fruit_vegetation").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "orange_fruit_vegetation").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry_fruit_vegetation").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_FRUIT_VEGETATION = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear_fruit_vegetation").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_FRUIT_VEGETATION = createKey("apple_fruit_vegetation");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_FRUIT_VEGETATION = createKey("lemon_fruit_vegetation");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_FRUIT_VEGETATION = createKey("orange_fruit_vegetation");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_FRUIT_VEGETATION = createKey("cherry_fruit_vegetation");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_FRUIT_VEGETATION = createKey("pear_fruit_vegetation");
+
+	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, name));
+	}
 
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		HolderGetter<PlacedFeature> placedHolderGetter = context.lookup(Registries.PLACED_FEATURE);

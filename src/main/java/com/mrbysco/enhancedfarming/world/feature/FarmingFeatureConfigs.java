@@ -3,6 +3,7 @@ package com.mrbysco.enhancedfarming.world.feature;
 import com.mrbysco.enhancedfarming.EnhancedFarming;
 import com.mrbysco.enhancedfarming.block.crops.NetherFlowerBlock;
 import com.mrbysco.enhancedfarming.init.FarmingRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
@@ -30,58 +31,61 @@ import java.util.OptionalInt;
 
 public class FarmingFeatureConfigs {
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "apple").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "apple_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "apple_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "apple_bees_005").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_apple").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_apple_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_apple_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_apple_bees_005").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE = createKey("apple");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_0002 = createKey("apple_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_002 = createKey("apple_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> APPLE_BEES_005 = createKey("apple_bees_005");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE = createKey("fancy_apple");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_0002 = createKey("fancy_apple_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_002 = createKey("fancy_apple_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_APPLE_BEES_005 = createKey("fancy_apple_bees_005");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "lemon").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "lemon_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "lemon_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "lemon_bees_005").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_lemon").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_lemon_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_lemon_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_lemon_bees_005").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON = createKey("lemon");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_0002 = createKey("lemon_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_002 = createKey("lemon_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_BEES_005 = createKey("lemon_bees_005");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON = createKey("fancy_lemon");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_0002 = createKey("fancy_lemon_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_002 = createKey("fancy_lemon_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_LEMON_BEES_005 = createKey("fancy_lemon_bees_005");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "orange").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "orange_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "orange_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "orange_bees_005").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_orange").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_orange_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_orange_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_orange_bees_005").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE = createKey("orange");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_0002 = createKey("orange_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_002 = createKey("orange_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BEES_005 = createKey("orange_bees_005");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE = createKey("fancy_orange");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_0002 = createKey("fancy_orange_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_002 = createKey("fancy_orange_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_ORANGE_BEES_005 = createKey("fancy_orange_bees_005");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "cherry_bees_005").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_cherry").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_cherry_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_cherry_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_cherry_bees_005").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY = createKey("cherry");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_0002 = createKey("cherry_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_002 = createKey("cherry_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_BEES_005 = createKey("cherry_bees_005");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY = createKey("fancy_cherry");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_0002 = createKey("fancy_cherry_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_002 = createKey("fancy_cherry_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_CHERRY_BEES_005 = createKey("fancy_cherry_bees_005");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "pear_bees_005").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_pear").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_0002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_pear_bees_0002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_002 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_pear_bees_002").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_005 = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "fancy_pear_bees_005").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR = createKey("pear");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_0002 = createKey("pear_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_002 = createKey("pear_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PEAR_BEES_005 = createKey("pear_bees_005");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR = createKey("fancy_pear");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_0002 = createKey("fancy_pear_bees_0002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_002 = createKey("fancy_pear_bees_002");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_PEAR_BEES_005 = createKey("fancy_pear_bees_005");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BANANA = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "banana").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> AVOCADO = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "avocado").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MANGO = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "mango").toString());
-	public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "olive").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BANANA = createKey("banana");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AVOCADO = createKey("avocado");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MANGO = createKey("mango");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE = createKey("olive");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NETHER_FLOWER = FeatureUtils.createKey(new ResourceLocation(EnhancedFarming.MOD_ID, "patch_nether_flower").toString());
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NETHER_FLOWER = createKey("patch_nether_flower");
 
+	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(EnhancedFarming.MOD_ID, name));
+	}
 
 	private static TreeConfiguration.TreeConfigurationBuilder getApple() {
 		return (new TreeConfiguration.TreeConfigurationBuilder(

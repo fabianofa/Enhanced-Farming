@@ -22,8 +22,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.PlantType;
-import net.neoforged.neoforge.common.CommonHooks;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -99,8 +97,8 @@ public class CropstickCropBlock extends CropBlock {
 			if (level.getRawBrightness(pos, 0) >= 9) {
 				int i = this.getAge(state);
 				if (i < this.getMaxAge()) {
-					float f = getGrowthSpeed(this, level, pos);
-					if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(level, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) {
+					float f = getGrowthSpeed(state, level, pos);
+					if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(level, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0)) {
 						level.setBlock(pos, this.getStateForAge(i + 1), 2);
 						net.neoforged.neoforge.common.CommonHooks.fireCropGrowPost(level, pos, state);
 					}
@@ -112,11 +110,6 @@ public class CropstickCropBlock extends CropBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockStateBuilder) {
 		blockStateBuilder.add(AGE);
-	}
-
-	@Override
-	public PlantType getPlantType(BlockGetter blockGetter, BlockPos pos) {
-		return PlantType.CROP;
 	}
 
 	@Override

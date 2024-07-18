@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/raw_meats"
+            "items": "#c:foods/raw_meat"
           }
         ]
       },

@@ -14,7 +14,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.PlantType;
 
 import java.util.stream.Stream;
 
@@ -47,18 +46,6 @@ public class CropStickBlock extends BushBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {
 		return CROPSTICK_SHAPE;
-	}
-
-	@Override
-	public PlantType getPlantType(BlockGetter blockGetter, BlockPos pos) {
-		return PlantType.CROP;
-	}
-
-	@Override
-	public BlockState getPlant(BlockGetter blockGetter, BlockPos pos) {
-		BlockState state = blockGetter.getBlockState(pos);
-		if (state.getBlock() != this) return defaultBlockState();
-		return state;
 	}
 
 	@Override

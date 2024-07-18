@@ -1,21 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bottle": {
+    "has_bowl": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:glass_bottle"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_fruits": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#c:foods/fruits"
+            "items": "minecraft:bowl"
           }
         ]
       },
@@ -31,35 +21,45 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sugar": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "enhancedfarming:stock"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vegetables": {
       "conditions": {
         "items": [
           {
-            "items": "#c:sugar"
+            "items": "#c:foods/vegetable"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
+    "has_water": {
       "conditions": {
-        "recipe": "enhancedfarming:jam"
+        "items": [
+          {
+            "items": "#c:water"
+          }
+        ]
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_pot",
-      "has_fruits",
-      "has_sugar",
-      "has_bottle"
+      "has_water",
+      "has_bowl",
+      "has_vegetables"
     ]
   ],
   "rewards": {
     "recipes": [
-      "enhancedfarming:jam"
+      "enhancedfarming:stock"
     ]
   }
 }
