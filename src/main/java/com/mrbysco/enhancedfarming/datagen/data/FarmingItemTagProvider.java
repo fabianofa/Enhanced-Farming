@@ -44,7 +44,7 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 	private final String DOUGH = "dough";
 	private final String CHEESES = "foods/cheeses";
 	private final String SALAD_INGREDIENTS = "salad_ingredients";
-	private final String SALT = "edible_salt";
+	private final String SALT = "foods/edible_salt";
 	private final String FLOUR = "flour";
 
 	@Override
