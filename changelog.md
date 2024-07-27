@@ -1,1 +1,1 @@
-* Initial update to 1.21
+* Fix `c:foods/edible_salt` tag being empty while being used for a recipe
