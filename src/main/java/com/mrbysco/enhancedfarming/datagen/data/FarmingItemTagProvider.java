@@ -84,6 +84,12 @@ public class FarmingItemTagProvider extends ItemTagsProvider {
 		addRegular(COOKED_BEEF, Items.COOKED_BEEF);
 		addRegular(COOKED_CHICKEN, Items.COOKED_CHICKEN);
 		addRegular(SALT, FarmingRegistry.SALT.get());
+
+		this.tag(Tags.Items.FOODS_SOUP).add(
+				FarmingRegistry.CARROT_SOUP.get(), FarmingRegistry.CHICKEN_NOODLE_SOUP.get(),
+				FarmingRegistry.CORN_SOUP.get(), FarmingRegistry.CUCUMBER_SOUP.get(), FarmingRegistry.ONION_SOUP.get(),
+				FarmingRegistry.POTATO_SOUP.get(), FarmingRegistry.TOMATO_SOUP.get());
+
 	}
 
 	private void addRegular(String category, Item... items) {
