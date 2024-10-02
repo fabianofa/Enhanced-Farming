@@ -1,1 +1,1 @@
-* Fix `c:foods/edible_salt` tag being empty while being used for a recipe
+* Add the different soup variants to the `c:foods/soup` item tag
